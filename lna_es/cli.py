@@ -134,6 +134,32 @@ def cmd_rewrite(draft_path: Path, verify_path: Path, out_path: Path) -> int:
     return 0
 
 
+def cmd_audit(metrics_path: Path, verify_path: Path, out_path: Path) -> int:
+    metrics = _load_json(metrics_path)
+    verify = _load_json(verify_path)
+
+    lines: list[str] = []
+    lines.append("# Audit Card")
+    lines.append("")
+    lines.append("## Metrics")
+    for key, value in metrics.items():
+        lines.append(f"- {key}: {value}")
+    lines.append("")
+    lines.append("## Violations")
+    violations = verify.get("violations", [])
+    if not violations:
+        lines.append("- none")
+    else:
+        for v in violations:
+            rule = v.get("rule", "<unknown>")
+            severity = v.get("severity", "info")
+            message = v.get("message", "")
+            lines.append(f"- [{severity}] {rule}: {message}")
+
+    _write_text(out_path, "\n".join(lines) + "\n")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="lna_es")
     sp = p.add_subparsers(dest="command")
@@ -170,6 +196,12 @@ def build_parser() -> argparse.ArgumentParser:
     prew.add_argument("-v", "--verify", type=Path, required=True)
     prew.add_argument("-o", "--out", type=Path, required=True)
 
+    # audit
+    paudit = sp.add_parser("audit", help="Emit audit card from metrics & verify")
+    paudit.add_argument("-m", "--metrics", type=Path, required=True)
+    paudit.add_argument("-v", "--verify", type=Path, required=True)
+    paudit.add_argument("-o", "--out", type=Path, required=True)
+
     return p
 
 
@@ -198,6 +230,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if ns.command == "rewrite":
         return cmd_rewrite(ns.input, ns.verify, ns.out)
+
+    if ns.command == "audit":
+        return cmd_audit(ns.metrics, ns.verify, ns.out)
 
     parser.print_help()
     return 2

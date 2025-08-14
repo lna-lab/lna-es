@@ -23,3 +23,4 @@ demo:
 	python3 -m lna_es.cli generate -g examples/graph.sample.json -c examples/control_A.json -o runs/A/ || true
 	python3 -m lna_es.cli verify -i runs/A/draft.txt -c examples/control_A.json -o runs/A/verify.json || true
 	python3 -m lna_es.cli rewrite -i runs/A/draft.txt -v runs/A/verify.json -o runs/A/fixed.txt || true
+	python3 -m lna_es.cli audit -m runs/A/metrics.json -v runs/A/verify.json -o runs/A/audit_card.md || true
