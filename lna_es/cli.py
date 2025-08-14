@@ -76,6 +76,44 @@ def cmd_ops_compile(operators_path: Path, out_path: Path) -> int:
     return 0
 
 
+def cmd_ops_validate(operators_path: Path) -> int:
+    """Validate operators file.
+
+    - If XML: validate against spec/operators.xsd
+    - If JSON: validate against spec/operator.schema.json (single operator schema)
+    """
+    ext = operators_path.suffix.lower()
+    repo_root = Path(__file__).resolve().parents[1]
+    if ext == ".xml":
+        try:
+            import xmlschema
+
+            xsd_path = repo_root / "spec" / "operators.xsd"
+            schema = xmlschema.XMLSchema(xsd_path)
+            schema.validate(str(operators_path))
+            print(f"OK: XML valid against {xsd_path}")
+            return 0
+        except Exception as exc:  # noqa: BLE001
+            print(f"ERROR: XML validation failed: {exc}")
+            return 1
+    elif ext == ".json":
+        try:
+            import jsonschema
+
+            schema_path = repo_root / "spec" / "operator.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            instance = json.loads(operators_path.read_text(encoding="utf-8"))
+            jsonschema.validate(instance=instance, schema=schema)
+            print(f"OK: JSON valid against {schema_path}")
+            return 0
+        except Exception as exc:  # noqa: BLE001
+            print(f"ERROR: JSON validation failed: {exc}")
+            return 1
+    else:
+        print("ERROR: Unsupported file type. Use .xml or .json")
+        return 2
+
+
 # generate
 
 
@@ -177,6 +215,10 @@ def build_parser() -> argparse.ArgumentParser:
     pops_compile = pops_sp.add_parser("compile", help="Compile operator dialect")
     pops_compile.add_argument("operators", type=Path)
     pops_compile.add_argument("-o", "--out", type=Path, required=True)
+    pops_validate = pops_sp.add_parser(
+        "validate", help="Validate operators file (XML/JSON)"
+    )
+    pops_validate.add_argument("operators", type=Path)
 
     # generate
     pgen = sp.add_parser("generate", help="Generate using graph and control")
@@ -221,6 +263,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if ns.command == "ops" and ns.ops_cmd == "compile":
         return cmd_ops_compile(ns.operators, ns.out)
+    if ns.command == "ops" and ns.ops_cmd == "validate":
+        return cmd_ops_validate(ns.operators)
 
     if ns.command == "generate":
         return cmd_generate(ns.graph, ns.control, ns.out_dir)

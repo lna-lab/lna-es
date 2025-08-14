@@ -1,0 +1,7 @@
+{
+  "name": "VERIFY_len",
+  "input": {"draft": {}, "targets": {}},
+  "output": {"violations": []},
+  "side_effects": ["verify_rule"],
+  "stability": "experimental"
+}
