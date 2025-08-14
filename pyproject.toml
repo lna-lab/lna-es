@@ -1,3 +1,15 @@
+[project]
+name = "lna-es"
+version = "0.1.0"
+description = "LNA-ES minimal CLI (starter)"
+requires-python = ">=3.9"
+authors = [{name = "LNA Lab"}]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+
+[project.scripts]
+lna = "lna_es.cli:main"
+
 [tool.black]
 line-length = 88
 target-version = ["py311"]
