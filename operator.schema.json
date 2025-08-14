@@ -1,0 +1,39 @@
+{
+  "$id": "lna-es-v0.1.operator.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "name",
+    "input",
+    "output"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "side_effects": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "graph_update",
+          "prompt_inject",
+          "verify_rule",
+          "rewrite_patch"
+        ]
+      }
+    },
+    "stability": {
+      "enum": [
+        "stable",
+        "experimental",
+        "deprecated"
+      ]
+    }
+  }
+}
