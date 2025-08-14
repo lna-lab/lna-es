@@ -94,6 +94,46 @@ def cmd_generate(graph_path: Path, control_path: Path, out_dir: Path) -> int:
     return 0
 
 
+def cmd_verify(draft_path: Path, control_path: Path, out_path: Path) -> int:
+    # Minimal verification: compute metrics and a toy violation
+    with draft_path.open("r", encoding="utf-8") as f:
+        draft_text = f.read()
+    control = _load_json(control_path)
+
+    metrics = {
+        "chars": len(draft_text),
+        "lines": draft_text.count("\n") + (0 if draft_text.endswith("\n") else 1),
+        "locks_enabled": sum(1 for v in control.get("locks", {}).values() if v),
+    }
+    violations: list[dict[str, Any]] = []
+    if "TODO" in draft_text:
+        violations.append(
+            {
+                "rule": "no_todo",
+                "severity": "minor",
+                "message": "Draft contains TODO markers",
+                "span": None,
+            }
+        )
+
+    result = {"metrics": metrics, "violations": violations}
+    _write_json(out_path, result)
+    return 0
+
+
+def cmd_rewrite(draft_path: Path, verify_path: Path, out_path: Path) -> int:
+    # Minimal rewrite: if no_todo violation exists, strip literal 'TODO'
+    with draft_path.open("r", encoding="utf-8") as f:
+        draft_text = f.read()
+    verify = _load_json(verify_path)
+    out_text = draft_text
+    for v in verify.get("violations", []):
+        if v.get("rule") == "no_todo":
+            out_text = out_text.replace("TODO", "")
+    _write_text(out_path, out_text)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="lna_es")
     sp = p.add_subparsers(dest="command")
@@ -118,6 +158,18 @@ def build_parser() -> argparse.ArgumentParser:
     pgen.add_argument("-c", "--control", type=Path, required=True)
     pgen.add_argument("-o", "--out-dir", type=Path, required=True)
 
+    # verify
+    pver = sp.add_parser("verify", help="Verify a draft against control")
+    pver.add_argument("-i", "--input", type=Path, required=True)
+    pver.add_argument("-c", "--control", type=Path, required=True)
+    pver.add_argument("-o", "--out", type=Path, required=True)
+
+    # rewrite
+    prew = sp.add_parser("rewrite", help="Rewrite a draft based on verification")
+    prew.add_argument("-i", "--input", type=Path, required=True)
+    prew.add_argument("-v", "--verify", type=Path, required=True)
+    prew.add_argument("-o", "--out", type=Path, required=True)
+
     return p
 
 
@@ -140,6 +192,12 @@ def main(argv: list[str] | None = None) -> int:
 
     if ns.command == "generate":
         return cmd_generate(ns.graph, ns.control, ns.out_dir)
+
+    if ns.command == "verify":
+        return cmd_verify(ns.input, ns.control, ns.out)
+
+    if ns.command == "rewrite":
+        return cmd_rewrite(ns.input, ns.verify, ns.out)
 
     parser.print_help()
     return 2

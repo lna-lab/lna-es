@@ -16,8 +16,10 @@ lint:
 check: fmt lint
 
 ab:
-	python -m lna_es.cli abtest -A examples/control_A.json -B examples/control_B.json -g examples/graph.sample.json -o runs/ab/
+	python3 -m lna_es.cli abtest -A examples/control_A.json -B examples/control_B.json -g examples/graph.sample.json -o runs/ab/
 
 demo:
-	python -m lna_es.cli ops compile examples/recipe.lna.yaml -o runs/dialect.json || true
-	python -m lna_es.cli generate -g examples/graph.sample.json -c examples/control_A.json -o runs/A/ || true
+	python3 -m lna_es.cli ops compile examples/recipe.lna.yaml -o runs/dialect.json || true
+	python3 -m lna_es.cli generate -g examples/graph.sample.json -c examples/control_A.json -o runs/A/ || true
+	python3 -m lna_es.cli verify -i runs/A/draft.txt -c examples/control_A.json -o runs/A/verify.json || true
+	python3 -m lna_es.cli rewrite -i runs/A/draft.txt -v runs/A/verify.json -o runs/A/fixed.txt || true
