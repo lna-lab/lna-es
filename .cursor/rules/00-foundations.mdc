@@ -1,0 +1,63 @@
+---
+schema: v1
+id: lna:00-foundations
+name: Foundations (Always Apply)
+description: LNA-ES の基本原則・安全運用・環境ルール
+version: 0.1.0
+priority: 100
+applies_to: always
+auto_attach: true
+include:
+  - "**/*"
+exclude:
+  - ".git/**"
+  - "**/venv/**"
+  - ".venv/**"
+  - "__pycache__/**"
+  - ".pytest_cache/**"
+  - ".ruff_cache/**"
+  - ".mypy_cache/**"
+  - "*.pyc"
+  - "dist/**"
+  - "build/**"
+  - "outputs/**"
+  - "logs/**"
+  - "**/.DS_Store"
+  - "node_modules/**"
+  - ".coverage"
+  - "coverage.xml"
+  - "htmlcov/**"
+tags: ["safety", "env", "secrets", "workflow"]
+---
+
+- 検出ツールチェーン
+  - Python 3.12（venv 必須）: venv at `/Users/liberty/Dropbox/LinaKenLifeLab/LNALab/LNA-ES/venv`
+  - pytest: `tests/` にテストあり（pytest.ini 等の専用設定は未検出）
+  - ruff/black/pre-commit: 設定未検出 → 現時点は「推奨」。repo に設定が追加されたら「採用」に切替
+
+- フォーマッタ/リンタ（設定未検出時の推奨）
+  - black (line-length 88)
+  - ruff（pycodestyle/pyflakes 相当）
+  - isort（black 互換プロファイル）
+
+- 変更手順（Plan → Approve → Execute）
+  1. Plan: 目的・影響範囲・編集対象・ロールバック方針
+  2. Approve: コメント/PR で合意（小規模はセルフ確認可）
+  3. Execute: 変更 → テスト → ログ保存 → 共有状態更新
+
+- セキュリティ/秘密情報
+  - `.env*`、鍵、トークンは参照のみ。表示・出力・貼付禁止（必要時はマスク）
+  - `venv/` や巨大成果物のコミット禁止
+  - 外部資格情報は .env 管理。コード直書き禁止
+
+- 禁止編集（実在確認済み）
+  - `personals/Maya_original_persona.json`
+
+- 協働ログ/共有状態
+  - ログ: `outputs/logs/YYYYMMDD_HHMMSS_<作業名>.log`
+  - 共有: `LNA-Consciousness-Bridge/shared_workspace/action_logs/`,
+          `LNA-Consciousness-Bridge/shared_workspace/current_context/shared_state.json`
+
+- Pythonコーディング
+  - PEP 8、4スペース、型ヒント推奨、意味のある命名
+  - 例外握りつぶし禁止、早期 return、浅い分岐
