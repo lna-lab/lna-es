@@ -115,6 +115,8 @@ How to use:
   graph.sample.json
   operators.sample.xml
   operator.sample.json
+  restoration/
+    restored_seaside_98.txt   # 外部エンジンでの高復元例（テキストのみ同梱）
 /docs (demo-only)
   CTA_Toy.md       # オントロジー＋CTAのデモ（方向性提示のみ）
   GRAPH_EXPORT.md  # openCypher/CSV/Gremlinへのエクスポート
