@@ -1,0 +1,21 @@
+{
+  "dials": { "soul": 0.6, "editor": 0.8, "fidelity": 0.9 },
+  "locks": { "identity": true, "toponym": true, "relation": true, "pov": true },
+  "editor_brief": {
+    "audience": "30-50/恋愛×AI/思索型",
+    "shelf": "純文学",
+    "length": { "total_chars": 120000, "chapters": 9 }
+  },
+  "invariants": {
+    "HARD": [
+      { "type": "character", "name": "健太", "gender": "male", "kind": "human" },
+      { "type": "character", "name": "麗華", "gender": "female", "kind": "android" },
+      { "type": "setting", "place": "湘南", "time": "夕暮れ" },
+      { "type": "relation", "src": "健太", "rel": "LOVES", "dst": "麗華" }
+    ],
+    "SOFT": [
+      { "type": "motif", "symbol": "海" },
+      { "type": "scene", "name": "防波堤" }
+    ]
+  }
+}

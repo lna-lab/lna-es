@@ -1,0 +1,29 @@
+# LNA-ES Repository – Cursor Rules
+# Scope: Python CLI + .lna DSL + Neo4j integration (future)
+
+## General
+- Target Python: 3.11+
+- Follow .editorconfig. Prefer standard library; avoid new deps unless necessary.
+- Keep PRs small and focused. Add tests for new logic.
+
+## Style & Tooling
+- Formatter: black (line length 88)
+- Lint: ruff (select E,F,I,UP,B,SIM; ignore E203,W503)
+- Type hints: optional, add progressively.
+- Markdown: wrap freely; use mdformat in CI.
+- JSON/YAML: 2-space indent, sorted keys where reasonable.
+
+## Project
+- Treat `.lna` as JSON-like. Validate structure; avoid model/secret leakage.
+- Invariants first: LOCK(HARD) > VERIFY > REWRITE > STYLE > SOFT.
+- Provide A/B outputs + audit card on feature changes touching generation.
+
+## Commits & Branches
+- Conventional Commits: feat/fix/chore/docs/test/refactor/build/ci
+- Branch prefixes: feat/*, fix/*, chore/*, docs/*
+- Run `make fmt && make lint` before commit. Use `pre-commit` locally.
+
+## Cursor Suggestions
+- Prefer pure functions in `lna_es/`. Keep CLI thin; push logic to modules.
+- Add docstrings and examples for public APIs.
+- When editing schema/spec, update examples and CI fixtures.

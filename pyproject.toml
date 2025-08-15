@@ -1,0 +1,29 @@
+[project]
+name = "lna-es"
+version = "0.1.0"
+description = "LNA-ES minimal CLI (starter)"
+requires-python = ">=3.12,<3.13"
+authors = [{name = "LNA Lab"}]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+
+[project.scripts]
+lna = "lna_es.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+extend = "ruff.toml"
+target-version = "py312"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
