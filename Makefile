@@ -1,4 +1,4 @@
-.PHONY: setup fmt lint check precommit ab demo venv test
+.PHONY: setup fmt lint check precommit ab demo venv test ensure-python install-python
 
 # Python/venv settings (use Python 3.12)
 PYTHON ?= python3.12
@@ -6,7 +6,34 @@ VENV ?= .venv
 VENVPY := $(VENV)/bin/python
 PIP := $(VENVPY) -m pip
 
-venv:
+ensure-python:
+	@if command -v $(PYTHON) >/dev/null 2>&1; then \
+		echo "Found $(PYTHON): $$($(PYTHON) -V)"; \
+	else \
+		echo "ERROR: $(PYTHON) not found in PATH."; \
+		echo ""; \
+		echo "Install options:"; \
+		echo "  - pyenv:   pyenv install -s 3.12.x  && export PYTHON=$$(pyenv which python3.12)"; \
+		echo "  - Homebrew: brew install python@3.12 && brew link python@3.12 --force"; \
+		echo "  - Or override: make PYTHON=$$(which python3.12) setup"; \
+		exit 2; \
+	fi
+
+install-python:
+	@if command -v pyenv >/dev/null 2>&1; then \
+		echo "Using pyenv to install Python 3.12 (if needed)..."; \
+		pyenv install -s 3.12.0 || true; \
+		echo "Tip: set PYTHON=$$(pyenv which python3.12) for subsequent make targets."; \
+	elif command -v brew >/dev/null 2>&1; then \
+		echo "Using Homebrew to install python@3.12..."; \
+		brew install python@3.12 || true; \
+		echo "If needed: brew link python@3.12 --force"; \
+	else \
+		echo "Please install Python 3.12 manually and re-run make setup."; \
+		exit 2; \
+	fi
+
+venv: ensure-python
 	@# Create venv with Python 3.12
 	$(PYTHON) -m venv $(VENV)
 	$(PIP) install -U pip

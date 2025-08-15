@@ -24,6 +24,7 @@ This repo is configured to use Python 3.12 via a local virtual environment `./.v
 
 ```bash
 make PYTHON=$(which python3.12) setup
+# Or try: make install-python  # attempts pyenv/brew installation helpers
 ```
 
 1. Run tests: `make test`
