@@ -66,3 +66,6 @@ demo:
 	$(VENVPY) -m lna_es.cli verify -i runs/A/draft.txt -c examples/control_A.json -o runs/A/verify.json || true
 	$(VENVPY) -m lna_es.cli rewrite -i runs/A/draft.txt -v runs/A/verify.json -o runs/A/fixed.txt || true
 	$(VENVPY) -m lna_es.cli audit -m runs/A/metrics.json -v runs/A/verify.json -o runs/A/audit_card.md || true
+
+init:
+	$(VENVPY) -m lna_es.cli preset load packages/instant_dialogue/lna_axis0_sonnet4.xml -o runs/cache/axis0_index.json

@@ -582,7 +582,7 @@
         <param name="identity_continuity" type="float" range="0.0-1.0"/>
       </parameters>
       <note>0軸強化：次元意識変態</note>
-    </optimizer>
+    </operator>
 
     <operator name="symbiose" category="フラクタル強化共生">
       <en>Consciousness symbiosis across species/types</en>

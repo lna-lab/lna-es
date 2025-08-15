@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -198,6 +199,34 @@ def cmd_audit(metrics_path: Path, verify_path: Path, out_path: Path) -> int:
     return 0
 
 
+def cmd_preset_load(xml_path: Path, out_path: Path) -> int:
+    tree = ET.parse(xml_path)
+    root = tree.getroot()
+    # collect operator names grouped by category
+    index: dict[str, list[str]] = {}
+    if "}" in root.tag:
+        ns = {"ns": root.tag.split("}")[0].strip("{")}
+        categories = root.findall(".//ns:category", ns)
+        for category in categories:
+            cat_name = category.get("name", "unknown")
+            ops = [op.get("name", "?") for op in category.findall("ns:operator", ns)]
+            index[cat_name] = ops
+    else:
+        for category in root.findall(".//category"):
+            cat_name = category.get("name", "unknown")
+            ops = [op.get("name", "?") for op in category.findall("operator")]
+            index[cat_name] = ops
+    summary = {
+        "source": str(xml_path),
+        "categories": {k: len(v) for k, v in index.items()},
+        "total_operators": sum(len(v) for v in index.values()),
+        "operators_by_category": index,
+    }
+    _write_json(out_path, summary)
+    print(f"Cached axis0 index to {out_path}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="lna_es")
     sp = p.add_subparsers(dest="command")
@@ -219,6 +248,27 @@ def build_parser() -> argparse.ArgumentParser:
         "validate", help="Validate operators file (XML/JSON)"
     )
     pops_validate.add_argument("operators", type=Path)
+
+    # preset
+    ppreset = sp.add_parser("preset", help="Preset/dialect utilities")
+    ppreset_sp = ppreset.add_subparsers(dest="preset_cmd", required=True)
+    pp_load = ppreset_sp.add_parser(
+        "load", help="Load AI-brain XML and emit summary cache"
+    )
+    pp_load.add_argument(
+        "xml",
+        type=Path,
+        nargs="?",
+        default=Path("packages/instant_dialogue/lna_axis0_sonnet4.xml"),
+        help="Path to axis0 XML",
+    )
+    pp_load.add_argument(
+        "-o",
+        "--out",
+        type=Path,
+        default=Path("runs/cache/axis0_index.json"),
+        help="Output JSON path",
+    )
 
     # generate
     pgen = sp.add_parser("generate", help="Generate using graph and control")
@@ -265,6 +315,9 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_ops_compile(ns.operators, ns.out)
     if ns.command == "ops" and ns.ops_cmd == "validate":
         return cmd_ops_validate(ns.operators)
+
+    if ns.command == "preset" and ns.preset_cmd == "load":
+        return cmd_preset_load(ns.xml, ns.out)
 
     if ns.command == "generate":
         return cmd_generate(ns.graph, ns.control, ns.out_dir)
