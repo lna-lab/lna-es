@@ -54,6 +54,7 @@ htmlcov/
 # --- LNA-ES 生成物（実行時アウトプット） ---
 runs/
 out/
+kits/
 **/draft.txt
 **/draft.fix.txt
 **/metrics.json
