@@ -29,6 +29,22 @@ make PYTHON=$(which python3.12) setup
 
 1. Run tests: `make test`
 
+## CI (GitHub Actions)
+
+This repo includes a basic CI workflow at `.github/workflows/ci.yml` that runs on every push and pull request:
+
+- Set up Python 3.12
+- Install dev tools (`pre-commit`, `black`, `ruff`, `mdformat`, `pytest`, `jsonschema`, `xmlschema`)
+- Run `pre-commit` on all files (format + lint)
+- Run `pytest`
+- Run a quick CLI sanity check (`python -m lna_es.cli --help`)
+
+How to use:
+
+- Push your branch to GitHub; the workflow auto-runs
+- Check the “Actions” tab for status and logs
+- To speed up linting, the workflow caches pre-commit hooks
+
 ## Repo layout
 
 ```
