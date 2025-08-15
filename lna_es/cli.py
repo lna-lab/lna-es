@@ -298,6 +298,17 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Auto-init: ensure axis0 cache exists once per workspace
+    try:
+        repo_root = Path(__file__).resolve().parents[1]
+        cache = repo_root / "runs/cache/axis0_index.json"
+        xml_default = repo_root / "packages/instant_dialogue/lna_axis0_sonnet4.xml"
+        if not cache.exists() and xml_default.exists():
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            cmd_preset_load(xml_default, cache)
+    except Exception:
+        pass
+
     parser = build_parser()
     ns = parser.parse_args(argv)
 
