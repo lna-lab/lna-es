@@ -45,6 +45,36 @@ How to use:
 - Check the “Actions” tab for status and logs
 - To speed up linting, the workflow caches pre-commit hooks
 
+## Design philosophy: Core vs. Dialects (AI-brain as a dialect)
+
+LNA‑ES keeps the Core minimal and stable, while allowing rich expression via Dialects.
+
+- Core (portable contract)
+
+  - 7 required operators: EXTRACT, RESOLVE, WEIGHT, LOCK, STYLE, VERIFY, REWRITE
+  - Dials/Locks precedence、I/O契約（typed errors）、Audit surface
+  - Provider-agnostic outputs（例: style_signal）をアダプタで各LLMへマッピング
+
+- Dialects (your customization)
+
+  - ドメイン/美学/「AI脳」などの概念は方言で表現
+  - `operators.xml`（`spec/operators.xsd`）で演算子を定義し、`effect_map` で Core へ落とし込む
+  - `lna ops compile operators.xml -o dialect.json` で決定的にCoreへコンパイル
+  - 安定性と進化管理: `stability` フラグと SemVer を運用
+
+- Why dialects for “AI脳”?
+
+  - Coreを痩せた契約のまま保つことで互換性と移植性を確保
+  - Axis系（例: `packages/instant_dialogue/lna_axis0_sonnet4.xml`）は方言パックとして管理
+  - ユーザーは用途に応じて独自方言を定義/差し替え可能（ベンダー非依存のまま）
+
+Start here if you want your own dialect:
+
+1. Copy `examples/operators.sample.xml` and extend it
+1. Validate with `lna ops validate your_operators.xml`
+1. Compile with `lna ops compile your_operators.xml -o your_dialect.json`
+1. Use it with `lna generate ... --dialect your_dialect.json`（adapter側でのマッピング想定）
+
 ## Repo layout
 
 ```
