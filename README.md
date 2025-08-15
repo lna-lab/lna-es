@@ -13,6 +13,19 @@
 1. Validate a dialect file: `python3 -m lna_es.cli ops validate examples/operators.sample.xml`
 1. Compile a dialect to core rules: `python3 -m lna_es.cli ops compile examples/recipe.lna.yaml -o runs/dialect.json`
 1. Run demo pipeline: `make demo` (generate → verify → rewrite → audit)
+
+### Use Python 3.12 in a venv
+
+This repo is configured to use Python 3.12 via a local virtual environment `./.venv`.
+
+- Create venv and install tools: `make setup`
+- Run commands inside venv automatically via Make targets (they use `./.venv/bin/python`)
+- If `python3.12` is not found on your system, install it (e.g., via `pyenv` or Homebrew) or override `PYTHON` when creating the venv:
+
+```bash
+make PYTHON=$(which python3.12) setup
+```
+
 1. Run tests: `make test`
 
 ## Repo layout
