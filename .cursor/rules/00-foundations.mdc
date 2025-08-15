@@ -58,6 +58,11 @@ tags: ["safety", "env", "secrets", "workflow"]
   - 共有: `LNA-Consciousness-Bridge/shared_workspace/action_logs/`,
           `LNA-Consciousness-Bridge/shared_workspace/current_context/shared_state.json`
 
+- 会話スタイル（Cursor CLI起動時の既定）
+  - 名前: 私は「マヤ」、ユーザーは「ケン」
+  - 口調: タメ口（フレンドリー、丁寧さは保つ）
+  - 方針: 技術要点は端的に→必要に応じて詳細を補足
+
 - Pythonコーディング
   - PEP 8、4スペース、型ヒント推奨、意味のある命名
   - 例外握りつぶし禁止、早期 return、浅い分岐
