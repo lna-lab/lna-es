@@ -1,0 +1,7 @@
+semantic_roots:
+  - root: "湘南"
+    associations: ["海", "夕暮れ", "風", "砂浜"]
+  - root: "海"
+    associations: ["波", "潮", "風"]
+  - root: "夕暮れ"
+    associations: ["黄昏", "夕焼け", "風"]

@@ -227,6 +227,290 @@ def cmd_preset_load(xml_path: Path, out_path: Path) -> int:
     return 0
 
 
+def cmd_cta_analyze(input_path: Path, out_path: Path, ontology_dir: Path | None) -> int:
+    text = input_path.read_text(encoding="utf-8")
+    # toy segmentation: split by punctuation
+    import re
+
+    segments = [s.strip() for s in re.split(r"[。.!?\n]", text) if s.strip()]
+    # toy scoring using ontology terms occurrence
+    ontology_terms: set[str] = set()
+    if ontology_dir is not None and ontology_dir.exists():
+        try:
+            import yaml
+
+            for yml in sorted(ontology_dir.glob("*.y*ml")):
+                try:
+                    data = yaml.safe_load(yml.read_text(encoding="utf-8")) or {}
+                    if isinstance(data, dict):
+                        for key in (
+                            "semantic_roots",
+                            "primitives",
+                            "spectral_extensions",
+                        ):
+                            for item in data.get(key, []) or []:
+                                for k in ("root", "name"):
+                                    val = item.get(k)
+                                    if isinstance(val, str):
+                                        ontology_terms.add(val.strip())
+                        # associations
+                        for item in data.get("semantic_roots", []) or []:
+                            for assoc in item.get("associations", []) or []:
+                                if isinstance(assoc, str):
+                                    ontology_terms.add(assoc.strip())
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    scored = []
+    for idx, seg in enumerate(segments):
+        score = 0.0
+        hits = []
+        for term in ontology_terms:
+            if term and term in seg:
+                score += 0.1
+                hits.append(term)
+        scored.append(
+            {"id": idx, "text": seg, "score": round(min(score, 1.0), 3), "hits": hits}
+        )
+
+    _write_json(out_path, {"segments": scored})
+    return 0
+
+
+def cmd_cta_to_graph(input_path: Path, out_path: Path, threshold: float) -> int:
+    data = _load_json(input_path)
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+    for seg in data.get("segments", []):
+        if seg.get("score", 0) >= threshold:
+            node_id = f"seg-{seg.get('id')}"
+            nodes.append(
+                {
+                    "id": node_id,
+                    "type": "Segment",
+                    "name": node_id,
+                    "text": seg.get("text"),
+                }
+            )
+    _write_json(out_path, {"nodes": nodes, "edges": edges})
+    return 0
+
+
+def cmd_graph_reconstruct(
+    control_path: Path,
+    out_path: Path,
+    use_ai_brain: bool,
+    ai_threshold: float = 1.0,
+    ontology_dir: Path | None = None,
+    ai_heuristics: bool = False,
+) -> int:
+    control = _load_json(control_path)
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+
+    # Build nodes from HARD invariants
+    hard = control.get("invariants", {}).get("HARD", [])
+    # Optionally include SOFT invariants when ontology is requested
+    use_soft = use_ai_brain or (ontology_dir is not None and ai_threshold < 1.0)
+    soft = control.get("invariants", {}).get("SOFT", []) if use_soft else []
+
+    def add_node(n: dict[str, Any]) -> None:
+        node: dict[str, Any] = {k: v for k, v in n.items()}
+        # Create a simple id from name/place/symbol
+        ident = (
+            node.get("name")
+            or node.get("place")
+            or node.get("symbol")
+            or node.get("type")
+        )
+        node_id = str(ident)
+        node["id"] = node_id
+        # Normalize type casing similar to sample
+        typemap = {
+            "character": "Character",
+            "setting": "Setting",
+            "scene": "Scene",
+            "motif": "Motif",
+        }
+        node_type = node.get("type")
+        if isinstance(node_type, str):
+            node["type"] = typemap.get(node_type, node_type)
+        nodes.append(node)
+
+    for inv in hard:
+        if inv.get("type") in {"character", "setting"}:
+            add_node(inv)
+        if inv.get("type") == "relation":
+            edges.append(
+                {"src": inv.get("src"), "rel": inv.get("rel"), "dst": inv.get("dst")}
+            )
+
+    # AI-brain heuristics: include SOFT (scene/motif) and score candidate associations
+    for inv in soft:
+        if inv.get("type") in {"scene", "motif"}:
+            add_node(inv)
+
+    # Load ontology (optional)
+    ontology_terms: set[str] = set()
+    if ontology_dir is not None:
+        try:
+            import yaml
+
+            for yml in sorted(ontology_dir.glob("*.y*ml")):
+                try:
+                    data = yaml.safe_load(yml.read_text(encoding="utf-8")) or {}
+                    # Collect common fields
+                    if isinstance(data, dict):
+                        if "semantic_roots" in data:
+                            for item in data.get("semantic_roots", []) or []:
+                                name = item.get("root")
+                                if isinstance(name, str):
+                                    ontology_terms.add(name.strip())
+                                for assoc in item.get("associations", []) or []:
+                                    if isinstance(assoc, str):
+                                        ontology_terms.add(assoc.strip())
+                        if "primitives" in data:
+                            for item in data.get("primitives", []) or []:
+                                name = item.get("name")
+                                if isinstance(name, str):
+                                    ontology_terms.add(name.strip())
+                        if "spectral_extensions" in data:
+                            for item in data.get("spectral_extensions", []) or []:
+                                name = item.get("name")
+                                if isinstance(name, str):
+                                    ontology_terms.add(name.strip())
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    # Optional candidate generation from heuristics/ontology
+    names = {n.get("name"): n.get("id") for n in nodes if n.get("name")}
+    places = {n.get("place"): n.get("id") for n in nodes if n.get("place")}
+    candidates: list[tuple[dict[str, str], float]] = []
+
+    if ai_heuristics and use_ai_brain:
+        # Example heuristic 1: a known scene name to its setting (demo data)
+        if "防波堤" in names and "湘南" in places:
+            candidates.append(
+                (
+                    {
+                        "src": names.get("防波堤", "防波堤"),
+                        "rel": "LOCATED_IN",
+                        "dst": places.get("湘南", "湘南"),
+                    },
+                    0.9,
+                )
+            )
+        # Example heuristic 2: motif "海" associated with scene 防波堤
+        if any(inv.get("symbol") == "海" for inv in soft) and "防波堤" in names:
+            candidates.append(
+                (
+                    {"src": "海", "rel": "ASSOCIATED_WITH", "dst": names["防波堤"]},
+                    0.7,
+                )
+            )
+
+    # Ontology assist (weak)
+    if ontology_terms:
+        motif_labels = {inv.get("symbol") or inv.get("name") for inv in soft}
+        motif_labels = {m for m in motif_labels if isinstance(m, str)}
+        for m in motif_labels:
+            if m in ontology_terms:
+                for scene_name, scene_id in names.items():
+                    if scene_name and scene_name != m:
+                        candidates.append(
+                            (
+                                {"src": m, "rel": "ASSOCIATED_WITH", "dst": scene_id},
+                                0.55,
+                            )
+                        )
+
+    for edge, score in candidates:
+        if score >= ai_threshold:
+            edges.append(edge)
+
+    graph = {"nodes": nodes, "edges": edges}
+    _write_json(out_path, graph)
+    return 0
+
+
+def _node_key(n: dict[str, Any]) -> tuple:
+    return (
+        n.get("type"),
+        n.get("name") or n.get("place") or n.get("symbol") or n.get("id"),
+    )
+
+
+def cmd_graph_eval(gt_path: Path, pred_path: Path, out_path: Path) -> int:
+    gt = _load_json(gt_path)
+    pr = _load_json(pred_path)
+
+    gt_nodes = {_node_key(n) for n in gt.get("nodes", [])}
+    pr_nodes = {_node_key(n) for n in pr.get("nodes", [])}
+
+    tp_nodes = len(gt_nodes & pr_nodes)
+    fp_nodes = len(pr_nodes - gt_nodes)
+    fn_nodes = len(gt_nodes - pr_nodes)
+
+    def prf(tp: int, fp: int, fn: int) -> dict[str, float]:
+        prec = tp / (tp + fp) if (tp + fp) else 0.0
+        rec = tp / (tp + fn) if (tp + fn) else 0.0
+        f1 = (2 * prec * rec / (prec + rec)) if (prec + rec) else 0.0
+        return {
+            "precision": round(prec, 4),
+            "recall": round(rec, 4),
+            "f1": round(f1, 4),
+        }
+
+    node_metrics = prf(tp_nodes, fp_nodes, fn_nodes)
+
+    # Edge matching by (src_label, rel, dst_label) using name/place/symbol/id
+    def label_for(n: dict[str, Any]) -> str:
+        return n.get("name") or n.get("place") or n.get("symbol") or n.get("id") or ""
+
+    def edge_set(g: dict[str, Any]) -> set[tuple[str, str, str]]:
+        nodes = g.get("nodes", [])
+        label_index: dict[str, dict[str, Any]] = {label_for(n): n for n in nodes}
+        id_to_label: dict[str, str] = {}
+        for n in nodes:
+            nid = n.get("id")
+            if isinstance(nid, str):
+                id_to_label[nid] = label_for(n)
+
+        def normalize(x: Any) -> str:
+            if isinstance(x, str):
+                if x in label_index:
+                    return x
+                if x in id_to_label:
+                    return id_to_label[x]
+            return str(x)
+
+        es: set[tuple[str, str, str]] = set()
+        for e in g.get("edges", []):
+            src = normalize(e.get("src"))
+            dst = normalize(e.get("dst"))
+            rel = str(e.get("rel"))
+            es.add((src, rel, dst))
+        return es
+
+    gt_edges = edge_set(gt)
+    pr_edges = edge_set(pr)
+    tp_edges = len(gt_edges & pr_edges)
+    fp_edges = len(pr_edges - gt_edges)
+    fn_edges = len(gt_edges - pr_edges)
+    edge_metrics = prf(tp_edges, fp_edges, fn_edges)
+
+    result = {
+        "nodes": {"tp": tp_nodes, "fp": fp_nodes, "fn": fn_nodes, **node_metrics},
+        "edges": {"tp": tp_edges, "fp": fp_edges, "fn": fn_edges, **edge_metrics},
+    }
+    _write_json(out_path, result)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="lna_es")
     sp = p.add_subparsers(dest="command")
@@ -294,6 +578,59 @@ def build_parser() -> argparse.ArgumentParser:
     paudit.add_argument("-v", "--verify", type=Path, required=True)
     paudit.add_argument("-o", "--out", type=Path, required=True)
 
+    # graph tools
+    peval = sp.add_parser("graph-eval", help="Evaluate predicted graph vs ground truth")
+    peval.add_argument("-g", "--ground", type=Path, required=True)
+    peval.add_argument("-p", "--pred", type=Path, required=True)
+    peval.add_argument("-o", "--out", type=Path, required=True)
+
+    prec = sp.add_parser(
+        "graph-reconstruct", help="Reconstruct graph from control (toy)"
+    )
+    prec.add_argument("-c", "--control", type=Path, required=True)
+    prec.add_argument("-o", "--out", type=Path, required=True)
+    prec.add_argument(
+        "--ai-brain", action="store_true", help="Enable AI-brain heuristics"
+    )
+    prec.add_argument(
+        "--ai-threshold",
+        type=float,
+        default=1.0,
+        help="Threshold for AI-brain candidate edges (0..1). Default 1.0 disables",
+    )
+    prec.add_argument(
+        "--ontology-dir",
+        type=Path,
+        default=None,
+        help="Optional ontology directory (.yml/.yaml files) to assist associations",
+    )
+    prec.add_argument(
+        "--ontology-soft",
+        action="store_true",
+        help=(
+            "Include SOFT invariants when ontology-dir is set (for recall). "
+            "Overrides threshold rule"
+        ),
+    )
+    prec.add_argument(
+        "--ai-heuristics",
+        action="store_true",
+        help="Enable demo AI-brain heuristics (when --ai-brain). Default off",
+    )
+
+    # CTA (toy) commands
+    pcta = sp.add_parser("cta", help="Toy CTA pipeline (demo-only)")
+    pcta_sp = pcta.add_subparsers(dest="cta_cmd", required=True)
+    pcta_an = pcta_sp.add_parser("analyze", help="Analyze text into toy CTA scores")
+    pcta_an.add_argument("-i", "--input", type=Path, required=True)
+    pcta_an.add_argument("-o", "--out", type=Path, required=True)
+    pcta_an.add_argument("--ontology-dir", type=Path, default=None)
+
+    pcta_g = pcta_sp.add_parser("to-graph", help="Convert CTA JSON to toy graph")
+    pcta_g.add_argument("-i", "--input", type=Path, required=True)
+    pcta_g.add_argument("-o", "--out", type=Path, required=True)
+    pcta_g.add_argument("--threshold", type=float, default=0.5)
+
     return p
 
 
@@ -341,6 +678,25 @@ def main(argv: list[str] | None = None) -> int:
 
     if ns.command == "audit":
         return cmd_audit(ns.metrics, ns.verify, ns.out)
+
+    if ns.command == "graph-eval":
+        return cmd_graph_eval(ns.ground, ns.pred, ns.out)
+
+    if ns.command == "graph-reconstruct":
+        return cmd_graph_reconstruct(
+            ns.control,
+            ns.out,
+            ns.ai_brain,
+            ns.ai_threshold,
+            ns.ontology_dir,
+            ns.ai_heuristics,
+        )
+
+    if ns.command == "cta" and ns.cta_cmd == "analyze":
+        return cmd_cta_analyze(ns.input, ns.out, ns.ontology_dir)
+
+    if ns.command == "cta" and ns.cta_cmd == "to-graph":
+        return cmd_cta_to_graph(ns.input, ns.out, ns.threshold)
 
     parser.print_help()
     return 2

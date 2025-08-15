@@ -115,6 +115,8 @@ How to use:
   graph.sample.json
   operators.sample.xml
   operator.sample.json
+/docs (demo-only)
+  CTA_Toy.md       # オントロジー＋CTAのデモ（方向性提示のみ）
 /CONTRIBUTING.md
 /README.md (this file)
 ```
