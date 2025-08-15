@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "lna-lang": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["lna_mcp_server.py"],
+      "env": {
+        "NEO4J_URI": "bolt://localhost:7687",
+        "NEO4J_USER": "neo4j",
+        "NEO4J_PASSWORD": "lna-love-password",
+        "RURI_MODEL_PATH": "/Users/liberty/models/Ruri_V3_310m",
+        "FAISS_DIR": "outputs/faiss/ruri768"
+      },
+      "description": "LNA-LANG統合サーバー - RURI-V3埋め込み、Neo4jグラフ検索、View Profiles出力"
+    }
+  }
+}

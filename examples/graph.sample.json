@@ -1,0 +1,51 @@
+{
+  "nodes": [
+    {
+      "id": "kenta",
+      "type": "Character",
+      "name": "健太",
+      "gender": "male",
+      "kind": "human"
+    },
+    {
+      "id": "reika",
+      "type": "Character",
+      "name": "麗華",
+      "gender": "female",
+      "kind": "android"
+    },
+    {
+      "id": "shonan",
+      "type": "Setting",
+      "place": "湘南",
+      "time": "夕暮れ"
+    },
+    {
+      "id": "breakwater",
+      "type": "Scene",
+      "name": "防波堤"
+    },
+    {
+      "id": "sea",
+      "type": "Motif",
+      "symbol": "海"
+    }
+  ],
+  "edges": [
+    {
+      "src": "kenta",
+      "rel": "LOVES",
+      "dst": "reika"
+    },
+    {
+      "src": "breakwater",
+      "rel": "LOCATED_IN",
+      "dst": "shonan"
+    },
+    {
+      "src": "sea",
+      "rel": "ASSOCIATED_WITH",
+      "dst": "breakwater"
+    }
+  ]
+}

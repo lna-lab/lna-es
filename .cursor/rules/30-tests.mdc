@@ -1,0 +1,51 @@
+---
+schema: v1
+id: lna:30-tests
+name: Tests (Auto Attach)
+description: pytest を中核とした最小テスト方針
+version: 0.1.0
+priority: 70
+applies_to: auto
+auto_attach: true
+include:
+  - "tests/**"
+  - "**/*_test.py"
+  - "test_*.py"
+exclude:
+  - ".git/**"
+  - "**/venv/**"
+  - ".venv/**"
+  - "__pycache__/**"
+  - ".pytest_cache/**"
+  - ".ruff_cache/**"
+  - ".mypy_cache/**"
+  - "*.pyc"
+  - "dist/**"
+  - "build/**"
+  - "**/.DS_Store"
+  - "node_modules/**"
+  - ".coverage"
+  - "coverage.xml"
+  - "htmlcov/**"
+tags: ["tests", "pytest", "quality"]
+---
+
+- テスト原則
+  - pytest 標準。新規コードは最小でも「正常系1・異常/境界1」
+  - オペレータ追加時: 評価/トレース/異常系の各1
+
+- 実行時間
+  - 単体テストは秒〜数十秒を目安に分割
+
+- 命名/配置
+  - `tests/`、`test_*.py` or `*_test.py`。I/Oは `tmp_path`
+
+- 品質ゲート（推奨）
+  - 重要モジュールはカバレッジ目安60%（厳密必須ではない）
+  - 回帰は失敗テスト先行で再現→修正
+
+- 外部依存
+  - LLM/ネットワークはテストダブル化、オフライン再現性を優先
+
+- チェックリスト
+  - 正常/異常/境界 / 速い / 外部依存分離 / 再現テスト先行

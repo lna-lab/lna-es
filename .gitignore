@@ -1,0 +1,105 @@
+# --- OS / Dropbox ---
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+.dropbox
+.dropbox.attr
+.dropbox.cache/
+.dropboxignore
+
+# --- Python / 仮想環境 / ビルド ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+
+# 仮想環境いろいろ
+.venv/
+venv/
+ENV/
+env/
+.conda/
+.python-version  # pyenv
+
+# ビルド/配布
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+.eggs/
+
+# --- ツールキャッシュ / テスト ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+
+# --- ノートブック ---
+.ipynb_checkpoints/
+
+# --- IDE / エディタ ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- LNA-ES 生成物（実行時アウトプット） ---
+runs/
+out/
+**/draft.txt
+**/draft.fix.txt
+**/metrics.json
+**/verify.json
+**/audit_card.md
+
+# 例：dialectのコンパイル結果（必要なら外してOK）
+**/dialect*.json
+
+# --- Model artifacts (root-level dirs) ---
+/model/
+/models/
+/checkpoints/
+/artifacts/
+
+# (必要なら全階層で) ※本当に必要なときだけ有効化
+# **/model/
+# **/models/
+
+# --- Large model binaries anywhere ---
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.gguf
+*.ggml
+*.tflite
+*.pb
+*.h5
+*.mmap
+*.tar
+*.tar.gz
+*.zip
+*.zst
+
+# --- (任意) トークナイザ/語彙の巨大ファイル ---
+# vocabやsentencepieceモデルを大量に抱える場合のみONに
+# tokenizer.json
+# merges.txt
+# vocab.txt
+# *.spm
+# *sentencepiece*.model
+
+!models/.gitkeep
+!models/README.md
+!model/.gitkeep
+!model/README.md

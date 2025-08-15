@@ -1,0 +1,54 @@
+---
+schema: v1
+id: lna:20-docs
+name: Docs & Operators Docs (Auto Attach)
+description: docs と operators 周辺ドキュメントの運用規約
+version: 0.1.0
+priority: 80
+applies_to: auto
+auto_attach: true
+include:
+  - "docs/**"
+  - "operators/**/README.md"
+  - "operators/**/docs/**"
+  - "axioms/**"
+  - "ontology/**"
+  - "philosophy/**"
+  - "**/*.lna"
+exclude:
+  - ".git/**"
+  - "**/venv/**"
+  - ".venv/**"
+  - "__pycache__/**"
+  - ".pytest_cache/**"
+  - ".ruff_cache/**"
+  - ".mypy_cache/**"
+  - "*.pyc"
+  - "dist/**"
+  - "build/**"
+  - "**/.DS_Store"
+  - "node_modules/**"
+  - ".coverage"
+  - "coverage.xml"
+  - "htmlcov/**"
+tags: ["docs", "operators", "lna", "pairing"]
+---
+
+- `.lna` と `.md` のペア整備
+  - 原則: `.lna` ごとに簡潔な `.md`（概要/入出力/制約/例）
+  - 未ペア検出時:
+    1) 同ディレクトリ/隣接 `docs/` を確認
+    2) 最小 README 案を Plan に記載
+    3) Approve 後に作成
+
+- 更新トリガ
+  - 挙動/仕様/入出力変更時はドキュも同時更新。研究ノート系は冒頭に差分要約
+
+- 記述ルール
+  - ファイル名/関数名は backticks。URL はリンク化
+
+- 禁止事項
+  - 機密/個人情報/鍵の記載
+
+- チェックリスト
+  - `.lna`⇄`.md` ペア有無 / 差分要約 / 例の確認 / 機密なし

@@ -1,0 +1,9 @@
+pipeline:
+  - EXTRACT: {ontology: v1.0}
+  - RESOLVE: {coref: aggressive}
+  - WEIGHT:  {scheme: occurrence+causality+contrast}
+  - LOCK:    {identity: true, toponym: true, relation: true, pov: true}
+  - STYLE:   {author: mishima_v1.2, soul: 0.75}
+  - VERIFY:  {market: {length_pct: 3}, style_targets: {avg_sent_len: 24, taigendome: 0.25}}
+  - REWRITE: {scope: violations_only}
+outputs: [draft, audit_card]

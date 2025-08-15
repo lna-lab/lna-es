@@ -1,0 +1,48 @@
+---
+schema: v1
+id: lna:10-git
+name: Git & PR Workflow (Manual Attach)
+description: ブランチ/コミット/PRの規約とレビュー手順
+version: 0.1.0
+priority: 90
+applies_to: manual
+auto_attach: false
+include:
+  - "**/*"
+exclude:
+  - ".git/**"
+  - "**/venv/**"
+  - ".venv/**"
+  - "__pycache__/**"
+  - ".pytest_cache/**"
+  - ".ruff_cache/**"
+  - ".mypy_cache/**"
+  - "*.pyc"
+  - "dist/**"
+  - "build/**"
+  - "**/.DS_Store"
+  - "node_modules/**"
+  - ".coverage"
+  - "coverage.xml"
+  - "htmlcov/**"
+tags: ["git", "commit", "review"]
+---
+
+- ブランチ命名
+  - `feat/<topic>-<説明>`, `fix/…`, `docs/…`, `chore/…`, `refactor/…`, `test/…`
+
+- コミット規約（Conventional Commits + 絵文字任意）
+  - 例: `feat(operators): add @void_resonance`
+  - 日本語1行サマリ + 必要に応じ英語詳細（why-first）。機密・大容量生成物は除外
+  - pre-commit 導入時はフック pass をコミット条件化（現状は未検出のため参考）
+
+- PR ルール
+  - 要約/影響範囲/関連ドキュ更新を記載
+  - テスト証跡を記載: `pytest -q` を実行し、末尾の集計ログ（例: `123 passed, 2 skipped in 12.34s`）をPR本文に貼る
+  - 互換性・セキュリティリスクがあれば明示（migration steps を添付）
+
+- 禁止事項
+  - git config 変更、無断 force-push、秘密情報の露出
+
+- チェックリスト
+  - why-first、Conventional、機密なし、PRにテスト証跡/ドキュ更新
