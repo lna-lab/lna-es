@@ -2,7 +2,7 @@
 
 setup:
 	python3 -m pip install -U pip || python -m pip install -U pip
-	python3 -m pip install pre-commit commitizen black ruff mdformat jsonschema xmlschema || python -m pip install pre-commit commitizen black ruff mdformat jsonschema xmlschema
+	python3 -m pip install pre-commit commitizen black ruff mdformat jsonschema xmlschema pytest || python -m pip install pre-commit commitizen black ruff mdformat jsonschema xmlschema pytest
 	python3 -m pre_commit install || python -m pre_commit install
 
 fmt:
@@ -13,7 +13,10 @@ fmt:
 lint:
 	python3 -m pre_commit run --all-files || python -m pre_commit run --all-files
 
-check: fmt lint
+test:
+	python3 -m pytest -q || python -m pytest -q
+
+check: fmt lint test
 
 ab:
 	python3 -m lna_es.cli abtest -A examples/control_A.json -B examples/control_B.json -g examples/graph.sample.json -o runs/ab/
