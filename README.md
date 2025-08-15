@@ -117,6 +117,7 @@ How to use:
   operator.sample.json
 /docs (demo-only)
   CTA_Toy.md       # オントロジー＋CTAのデモ（方向性提示のみ）
+  GRAPH_EXPORT.md  # openCypher/CSV/Gremlinへのエクスポート
 /CONTRIBUTING.md
 /README.md (this file)
 ```
