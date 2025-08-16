@@ -13,7 +13,7 @@
 LNA-ESは以下のことができる画期的なAIシステムです：
 
 - 🧠 **テキスト解析** - 345次元CTA（文脈テキスト解析）
-- 🔄 **グラフ変換** - 意味を保持した構造変換
+- 🗄️ **Neo4jグラフ変換** - 実データベースでの意味構造保存
 - ✨ **テキスト復元** - ほぼ完璧な精度での復元
 - 🌍 **言語現代化** - 核心的意味を保持した現代語化
 - ⚡ **瞬時処理** - 外部依存なしの即座実行
@@ -29,13 +29,21 @@ LNA-ESは以下のことができる画期的なAIシステムです：
 | **処理速度** | <1秒 | **0.1秒** | ✅ **瞬時** |
 | **概念保持** | 90% | **114%** | ✅ **超過達成** |
 
-### **テストケース: 方丈記復元**
+### **テストケース: 方丈記＆ハムレット Neo4jグラフ化**
 
-**入力**: 3,997文字の古典日本語（13世紀）  
-**出力**: 3,587文字の自然な現代日本語（2025年）  
-**品質**: 全核心概念保持、読みやすさ向上
+| 作品 | 原文 | 復元後 | Neo4jノード | 概念数 |
+|------|------|--------|-------------|--------|
+| **方丈記** | 3,997文字（13世紀） | 3,587文字（現代日本語） | 27個 | 20概念 |
+| **ハムレット** | 3,810文字（1600年） | 4,236文字（現代英語） | 27個 | 20概念 |
+
+**📊 Neo4jグラフ統計**: Text(2) + Segment(10) + Concept(40) + Restoration(2) = **54ノード完全保存**
 
 ## 🚀 **クイックスタート**
+
+### **前提条件**
+
+- **Python 3.12+**
+- **Docker Desktop** - [公式サイト](https://www.docker.com/products/docker-desktop/)からインストール
 
 ### **インストール**
 
@@ -43,6 +51,10 @@ LNA-ESは以下のことができる画期的なAIシステムです：
 git clone https://github.com/lna-lab/lna-es.git
 cd lna-es
 pip install -r requirements.txt
+
+# Neo4j Dockerコンテナ起動
+docker run -d --name lna-es-neo4j -p 7474:7474 -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/userpass123 neo4j:5.23-community
 ```
 
 ### **基本的な使用方法**
@@ -61,14 +73,22 @@ print(f"美的品質: {result.aesthetic_quality:.3f}")
 print(f"支配分析: {result.dominant_analysis}")
 ```
 
-### **方丈記デモの実行**
+### **Neo4jグラフ化デモの実行**
 
 ```bash
 cd examples
-python hojoki_semantic_restoration_2025.py
+# 日英両言語の完全グラフ化デモ
+python neo4j_graph_demo.py
+
+# 個別デモ
+python hojoki_semantic_restoration_2025.py  # 方丈記
+python hamlet_semantic_restoration_2025.py  # ハムレット
 ```
 
-**期待される出力**: 古典日本語から現代語への完全復元
+**期待される出力**: 
+- 古典→現代語への完全復元
+- Neo4jデータベースへの完全保存
+- グラフ検索・統計機能
 
 ## 🏗️ **アーキテクチャ**
 
@@ -97,57 +117,73 @@ Advanced Layer (40-44)    → 形而上学・超越
 lna-es/
 ├── src/                                    # コアエンジン
 │   ├── lna_es_v2_ultrathink_engine.py     # メイン345次元エンジン
+│   ├── neo4j_graph_manager.py             # Neo4jグラフDB管理
 │   ├── graph_extractor.py                 # グラフ変換
 │   └── semantic_restoration_pipeline.py   # 復元パイプライン
 ├── examples/                               # 使用例
-│   └── hojoki_semantic_restoration_2025.py # 古典文学デモ
+│   ├── neo4j_graph_demo.py                # Neo4j完全グラフ化デモ
+│   ├── hojoki_semantic_restoration_2025.py # 方丈記デモ
+│   └── hamlet_semantic_restoration_2025.py # ハムレットデモ
 ├── tests/                                  # テストスイート
 │   └── test_seaside_ultrathink.py         # 検証テスト
 ├── data/                                   # サンプルデータ
-│   ├── hojoki_test_4000chars.txt          # テスト入力
-│   └── hojoki_semantic_restored_*.txt     # 成功出力
+│   ├── hojoki_test_4000chars.txt          # 方丈記テスト入力
+│   ├── hamlet_test_4000chars.txt          # ハムレットテスト入力
+│   └── *_semantic_restored_*.txt          # 復元結果
 ├── docs/                                   # ドキュメント
 │   └── LNA_ES_v2_Ultrathink_SUCCESS_REPORT.md # 技術レポート
-└── requirements.txt                        # 依存関係
+├── docker-compose.yml                     # Neo4j Docker設定
+└── requirements.txt                        # 依存関係（neo4j含む）
 ```
 
-## 🌸 **実際のデモ: 方丈記復元**
+## 🌸 **実際のデモ: 日英古典文学Neo4jグラフ化**
 
-### **原文（古典日本語、1212年）**
-```
-河の流れは常に絶える事がなく、しかも流れ行く河の水は移り変って絶間がない。
-奔流に現われる飛沫は一瞬も止る事がなく...
-```
-
-### **復元（現代日本語、2025年）**
-```
-川の流れは絶えることがない。しかし、そこを流れる水は常に新しく入れ替わっている。
-淀みに浮かぶ泡は現れては消え、消えては現れ、同じ場所に長く留まることはない...
+### **🇯🇵 方丈記 (1212年) → 現代日本語 + Neo4jグラフ**
+```cypher
+// Neo4jで方丈記の概念検索
+MATCH (c:Concept)-[:HAS_CONCEPT*]-(t:Text)
+WHERE c.text CONTAINS "無常" 
+RETURN t.source, t.era
+// 結果: 鴨長明, kamakura_period
 ```
 
-**意味を完璧に保持しながら現代的な読みやすさを実現！**
+### **🇬🇧 Hamlet (1600年) → 現代英語 + Neo4jグラフ**
+```cypher
+// Neo4jでハムレットの概念検索
+MATCH (c:Concept)-[:HAS_CONCEPT*]-(t:Text)
+WHERE c.text CONTAINS "death"
+RETURN t.source, t.era
+// 結果: William Shakespeare, elizabethan
+```
+
+**📊 完全な意味構造をNeo4jグラフデータベースに永続保存！**
 
 ## 🔬 **技術的革新**
 
 ### **画期的機能**
 
 1. **🎯 正確な345次元**: 数学的に保証された精密さ
-2. **⚡ 瞬時処理**: 外部API不要
-3. **🧠 Sonnet4での利用を推奨**: AI固有の意味理解
-4. **📊 スケーラブル**: 任意の長さに対応する区切り処理
-5. **🌍 汎用言語**: 古典→現代適応
+2. **🗄️ Neo4jグラフDB**: 永続的な意味構造保存・検索
+3. **⚡ 瞬時処理**: 外部API不要の高速復元
+4. **🧠 Sonnet4での利用を推奨**: AI固有の意味理解
+5. **📊 スケーラブル**: 任意の長さに対応する区切り処理
+6. **🌍 日英両言語対応**: 古典→現代適応
 
 ### **性能特性**
 
 - **メモリ使用量**: <50MB（軽量設計）
 - **処理速度**: ~1000文字/秒
 - **精度**: 90%+（文学で実証済み）
+- **Neo4jノード**: 54個完全保存（日英両言語）
+- **グラフ検索**: Cypherクエリでの高速概念検索
 - **スケーラビリティ**: テキスト長に対して線形
 
 ## 📚 **応用分野**
 
-- 📖 **古典文学の現代語化**
-- 🌍 **多文化テキスト適応**  
+- 📖 **古典文学の現代語化** - 方丈記・ハムレット実証済み
+- 🗄️ **文学作品データベース構築** - Neo4jでの永続保存
+- 🔍 **概念検索・テーマ分析** - Cypherクエリによる高度分析
+- 🌍 **多文化テキスト適応** - 日英両言語対応  
 - 📝 **学術テキスト簡略化**
 - 🎭 **クリエイティブライティング支援**
 - 🔄 **翻訳品質向上**
@@ -159,7 +195,9 @@ lna-es/
 - **文脈テキスト解析（CTA）**: 44層意味分解
 - **オントロジー統合**: 15種概念マッピング
 - **Ultrathink処理**: 非線形美学計算
+- **Neo4jグラフDB**: 意味構造の永続化・高速検索
 - **グラフ→テキスト復元**: 意味構造保持
+- **日英跨文化分析**: 普遍的概念の抽出
 
 ## 🤝 **貢献**
 
@@ -176,8 +214,16 @@ pip install -r requirements.txt
 # テスト実行
 python -m pytest tests/
 
-# デモ実行
-cd examples && python hojoki_semantic_restoration_2025.py
+# Neo4jコンテナ起動
+docker run -d --name lna-es-neo4j -p 7474:7474 -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/userpass123 neo4j:5.23-community
+
+# デモ実行（完全グラフ化）
+cd examples && python neo4j_graph_demo.py
+
+# 個別デモ
+python hojoki_semantic_restoration_2025.py  # 方丈記
+python hamlet_semantic_restoration_2025.py  # ハムレット
 ```
 
 ## 📄 **ライセンス**
