@@ -1,0 +1,14 @@
+# LNA-ES (Living Neural Architecture - Enhanced System) v2.0
+# Requirements for text semantic restoration
+
+# Core dependencies
+numpy>=1.24.0
+requests>=2.28.0
+
+# Optional dependencies for advanced features
+# neo4j>=5.0.0  # For graph database integration
+# pandas>=1.5.0  # For data analysis and benchmarking
+
+# Development dependencies (optional)
+# pytest>=7.0.0  # For running tests
+# jupyter>=1.0.0  # For interactive examples
