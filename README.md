@@ -240,7 +240,7 @@ MITライセンス - 詳細は[LICENSE](LICENSE)ファイルをご覧くださ�
 
 - **GitHub**: [lna-lab/lna-es](https://github.com/lna-lab/lna-es)
 - **Issues**: [バグ報告・機能要望](https://github.com/lna-lab/lna-es/issues)
-- **Email**: contact@lna-lab.org
+- **Email**: ken3@lna-lab.art
 
 ## 🏆 **引用**
 
