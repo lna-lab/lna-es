@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Literature & Fiction",
+    "keywords": ["fiction", "novel", "story", "literature", "drama"]
+  },
+  {
+    "category": "Non-fiction",
+    "keywords": ["nonfiction", "essay", "biography", "memoir", "report"]
+  },
+  {
+    "category": "Science & Technology",
+    "keywords": ["science", "technology", "computer", "mathematics", "physics", "chemistry", "biology"]
+  },
+  {
+    "category": "History",
+    "keywords": ["history", "historical", "chronicle", "ancient", "war"]
+  },
+  {
+    "category": "Business & Economics",
+    "keywords": ["business", "economics", "economy", "management", "finance"]
+  },
+  {
+    "category": "Self-Help",
+    "keywords": ["self", "help", "guide", "improvement", "motivation", "success"]
+  },
+  {
+    "category": "Children's Books",
+    "keywords": ["child", "children", "kids", "storybook", "fairy"]
+  },
+  {
+    "category": "Mystery & Thriller",
+    "keywords": ["mystery", "crime", "thriller", "detective", "suspense"]
+  },
+  {
+    "category": "Romance",
+    "keywords": ["love", "romance", "romantic", "heart", "passion"]
+  },
+  {
+    "category": "Fantasy",
+    "keywords": ["fantasy", "magic", "dragon", "myth", "sword"]
+  }
+]

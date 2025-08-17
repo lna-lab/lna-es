@@ -1,0 +1,52 @@
+[
+  {
+    "code": "000",
+    "name": "Generalities",
+    "keywords": ["general", "reference", "encyclopedia", "overview"]
+  },
+  {
+    "code": "100",
+    "name": "Philosophy",
+    "keywords": ["philosophy", "thought", "ontology", "ethics"]
+  },
+  {
+    "code": "200",
+    "name": "History",
+    "keywords": ["history", "historical", "chronicle", "ancient"]
+  },
+  {
+    "code": "300",
+    "name": "Social sciences",
+    "keywords": ["society", "social", "law", "economics", "politics", "sociology", "culture"]
+  },
+  {
+    "code": "400",
+    "name": "Natural sciences",
+    "keywords": ["science", "physics", "chemistry", "biology", "math", "mathematics", "astronomy"]
+  },
+  {
+    "code": "500",
+    "name": "Technology",
+    "keywords": ["technology", "engineering", "computer", "algorithm", "software", "hardware"]
+  },
+  {
+    "code": "600",
+    "name": "Industry",
+    "keywords": ["industry", "agriculture", "manufacturing", "business", "management"]
+  },
+  {
+    "code": "700",
+    "name": "Arts",
+    "keywords": ["art", "music", "painting", "dance", "theater", "film"]
+  },
+  {
+    "code": "800",
+    "name": "Language",
+    "keywords": ["language", "linguistics", "grammar", "speech", "communication"]
+  },
+  {
+    "code": "900",
+    "name": "Literature",
+    "keywords": ["literature", "novel", "poetry", "story", "fiction", "drama"]
+  }
+]

@@ -1,0 +1,404 @@
+.
+├── .dropboxignore
+├── .gitignore
+├── Docs
+│   ├── LNA-ES_v3.0_ULTIMATE_REQUIREMENTS.md
+│   ├── 要件定義書v3.0_super.md
+│   ├── 要件定義書v3.0_ultra.md
+│   └── 要件定義書v3.1.md
+├── Text
+│   ├── Choumei_kamono
+│   │   ├── hojoki_full_clean.txt
+│   │   ├── hojoki_test_4000chars.txt
+│   │   └── hojyoki_4000_hukugen95percent.md
+│   ├── Osamu_Dazai
+│   │   └── hashire_merosu.txt
+│   ├── Souseki_Natsume
+│   │   ├── bocchan.txt
+│   │   ├── hashire_souseki.txt
+│   │   ├── kusamakura.txt
+│   │   ├── wagahaiwa_nekodearu.txt
+│   │   └── yume_juya.txt
+│   └── Yuki_Sonnet4
+│       └── Umkaze_no_melody_original.txt
+├── current_directory_structure.txt
+├── lna-es-app
+│   ├── Makefile
+│   ├── README.md
+│   ├── apps
+│   │   ├── evaluator
+│   │   │   ├── __init__.py
+│   │   │   └── evaluator.py
+│   │   ├── extractor
+│   │   │   ├── __init__.py
+│   │   │   └── extractor.py
+│   │   ├── importer
+│   │   │   ├── __init__.py
+│   │   │   └── importer.py
+│   │   └── restorer
+│   │       ├── __init__.py
+│   │       └── restorer.py
+│   ├── bin
+│   │   └── apply_cypher.sh
+│   ├── classifiers
+│   │   ├── kindle.json
+│   │   └── ndc.json
+│   ├── data
+│   │   ├── iaEjerK94G7h.json
+│   │   └── mRJZRKQ3CHTZ.json
+│   ├── docs
+│   │   └── requirements.md
+│   ├── out
+│   │   ├── iaEjerK94G7h.cypher
+│   │   └── restored_iaEjerK94G7h.txt
+│   └── schemas
+│       └── constraints.cypher
+├── material_systems
+│   ├── 10.Ultra
+│   │   ├── README.md
+│   │   ├── lna_es_v2_ultrathink_engine_super_real.py
+│   │   ├── test_real_lnaes_restoration_super_real.py
+│   │   └── ultrathink_graph_extractor_super_real.py
+│   ├── 20.Hyper
+│   │   ├── README.md
+│   │   ├── dynamic_user_correction_system_super_real.py
+│   │   ├── hamlet_semantic_restoration_2025_super_real.py
+│   │   └── neo4j_graph_demo_super_real.py
+│   ├── 30.Super
+│   │   ├── README.md
+│   │   ├── complete_integrated_f1_optimization_system_super_real.py
+│   │   ├── f1_auto_tuning_system_super_real.py
+│   │   ├── genre_specific_selftest_system_super_real.py
+│   │   ├── integrated_f1_optimization_suite_super_real.py
+│   │   ├── manuscript_adaptive_weighting_system_clean_super_real.py
+│   │   └── test_f1_optimization_super_real.py
+│   ├── 40.Real
+│   │   ├── README.md
+│   │   ├── advanced_localization_system_real.py
+│   │   ├── create_graph_real.py
+│   │   ├── create_hojoki_graph_real.py
+│   │   ├── evaluate_restoration_real.py
+│   │   ├── graph_extractor_real.py
+│   │   ├── hojoki_graph_creation_real.py
+│   │   ├── neo4j_graph_manager_real.py
+│   │   ├── prompt_builder_real.py
+│   │   ├── query_hojoki_graph_real.py
+│   │   ├── real_graph_restoration_pipeline_real.py
+│   │   ├── reconstruct_text_real.py
+│   │   ├── save_hojoki_to_neo4j_real.py
+│   │   └── semantic_restoration_pipeline_real.py
+│   └── 50.docs
+│       ├── 95percent_method.md
+│       ├── HOJOKI_GRAPH_PROJECT.md
+│       ├── LNA_ES_ONTOLOGY_FRAMEWORK.md
+│       ├── LNA_ES_v2_Ultrathink_SUCCESS_REPORT.md
+│       ├── MCP_INTEGRATION_GUIDE.md
+│       ├── NDC_10th_small-classes_full_2025-08-19.json
+│       ├── ONTOLOGY_CONCEPT_MAPPING.json
+│       ├── QUALITY_METRICS_GUIDE.md
+│       ├── YUKI_HANDOVER_NOTES.md
+│       ├── ai_brain_genre_specific_creativity_environments.md
+│       ├── cta_hybrid_system_design.md
+│       ├── kindle_genres_2025-08-19.json
+│       ├── ndc_ontology_integration.py
+│       ├── sense_inheritance_manifesto.md
+│       └── yuki_graph_method_complete_guide.md
+├── models
+│   ├── Qwen3-Embedding
+│   │   └── Qwen3-Embedding-0.6B-Q8_0.gguf
+│   └── Ruri_V3_310m
+│       ├── .git
+│       │   ├── HEAD
+│       │   ├── config
+│       │   ├── description
+│       │   ├── hooks
+│       │   │   ├── applypatch-msg.sample
+│       │   │   ├── commit-msg.sample
+│       │   │   ├── fsmonitor-watchman.sample
+│       │   │   ├── post-checkout
+│       │   │   ├── post-commit
+│       │   │   ├── post-merge
+│       │   │   ├── post-update.sample
+│       │   │   ├── pre-applypatch.sample
+│       │   │   ├── pre-commit.sample
+│       │   │   ├── pre-merge-commit.sample
+│       │   │   ├── pre-push
+│       │   │   ├── pre-push.sample
+│       │   │   ├── pre-rebase.sample
+│       │   │   ├── pre-receive.sample
+│       │   │   ├── prepare-commit-msg.sample
+│       │   │   ├── push-to-checkout.sample
+│       │   │   └── update.sample
+│       │   ├── index
+│       │   ├── info
+│       │   │   └── exclude
+│       │   ├── lfs
+│       │   │   ├── incomplete
+│       │   │   ├── objects
+│       │   │   │   ├── 00
+│       │   │   │   │   └── 82
+│       │   │   │   │       └── 008293028e1a9d9a1038d9b63d989a2319797dfeaa03f171093a57b33a3a8277
+│       │   │   │   └── 82
+│       │   │   │       └── 29
+│       │   │   │           └── 8229a6c3bbb16aa1a563eb62df60855af75b5e6e9c586f2ae571d3ab30df2804
+│       │   │   └── tmp
+│       │   ├── logs
+│       │   │   ├── HEAD
+│       │   │   └── refs
+│       │   │       ├── heads
+│       │   │       │   └── main
+│       │   │       └── remotes
+│       │   │           └── origin
+│       │   │               └── HEAD
+│       │   ├── objects
+│       │   │   ├── 01
+│       │   │   │   └── 40ba1eac83a3c9b857d64baba91969d988624b
+│       │   │   ├── 02
+│       │   │   │   └── 3306e50540b2949cee3db2fab32dccf676cd53
+│       │   │   ├── 0a
+│       │   │   │   ├── 39080499f05242936f640675c3c0e216a1ba96
+│       │   │   │   └── 99dbe7c3109032e37e12f3c2f3f989fda76576
+│       │   │   ├── 0c
+│       │   │   │   └── ca2ff5e963ea4647e6843bb9e1200bc51abf17
+│       │   │   ├── 15
+│       │   │   │   └── 3d8f0d68271cfff6d4b3d2eadffb1028e9a723
+│       │   │   ├── 16
+│       │   │   │   └── 1e63587de36fd9ed6cff762dd029edc9852ed3
+│       │   │   ├── 18
+│       │   │   │   └── b60fb8c2b9df296fb4212bb7d23ef94e579cd3
+│       │   │   ├── 19
+│       │   │   │   ├── 96d716ddd0567329eb9059e86f301834af709f
+│       │   │   │   └── bc90ac9482fbb69d57e8669687e9bded495558
+│       │   │   ├── 1b
+│       │   │   │   └── ede4e053d95e86354bf28c0f18b3e530c37576
+│       │   │   ├── 1d
+│       │   │   │   ├── 6c6bdacd8151bb855bf32153be4f4c1a8025c0
+│       │   │   │   └── d566f9e615dd256476b8a48bb6701fd796f2a2
+│       │   │   ├── 1e
+│       │   │   │   ├── 543665713276f00cbb7ef8d110a2fce6547450
+│       │   │   │   └── 6fcb91b8d48a0374b4604dc0dcb1bccd75357f
+│       │   │   ├── 2b
+│       │   │   │   └── 85b82f4d7a7f63897f8af74d87c02623e4cf23
+│       │   │   ├── 30
+│       │   │   │   └── b8dbfd2f2c826733c1ca3f2d3e09dce456acc5
+│       │   │   ├── 32
+│       │   │   │   └── 90b5be73aaf883fd7eab8785d1e4f0fee427d1
+│       │   │   ├── 3f
+│       │   │   │   └── def7333da88c5acef1233d944fc3e23b7eb29f
+│       │   │   ├── 42
+│       │   │   │   └── d26a8e0b12b1731dc84099926af71466f6882b
+│       │   │   ├── 46
+│       │   │   │   └── 8a703240cecbb02bf51b5efd7298b11aab50fe
+│       │   │   ├── 4f
+│       │   │   │   └── 4778606a56fde5141fe30170b968e8e5c43a15
+│       │   │   ├── 52
+│       │   │   │   └── 5898d861e36475f2483d031e1e083ad3bb59bd
+│       │   │   ├── 56
+│       │   │   │   └── 9e4394150a3cbb08cbb72a1e1e247baadea081
+│       │   │   ├── 58
+│       │   │   │   └── b181384e0abc1dad174d35f2647c8682dc7b53
+│       │   │   ├── 59
+│       │   │   │   └── 6fe39649034b883fe93cbec5481590e6a95486
+│       │   │   ├── 5b
+│       │   │   │   ├── 2990c23a7b26649482db1fdd447b0aee8b14d3
+│       │   │   │   └── 57b2695cc3dcfe23284ace79aaa8bde35f9bdf
+│       │   │   ├── 5d
+│       │   │   │   └── f590053564469fb8acab8c6c7270a8436c646d
+│       │   │   ├── 61
+│       │   │   │   └── 1343e8f72cf5f79122137432802b757e4efb12
+│       │   │   ├── 69
+│       │   │   │   └── 016c8865cef891c0708d4734453821d9bba334
+│       │   │   ├── 6a
+│       │   │   │   └── 30c5a6658e7a79025f7f1a2d35e5ae9512ce70
+│       │   │   ├── 72
+│       │   │   │   └── b49444fc4dc0d87d29025146467cbf20ec5779
+│       │   │   ├── 73
+│       │   │   │   └── b2b2e6db06631584c4091331377357bec8db29
+│       │   │   ├── 7a
+│       │   │   │   └── 9f3a02b85824b6b2a97a1f1d658763a457dad6
+│       │   │   ├── 7b
+│       │   │   │   └── 15257ff6d5b0dfea0465a9fc5647016ae9fe33
+│       │   │   ├── 7d
+│       │   │   │   └── f57a6b6f0a2177c5fc05fe611b05cf4436fc5d
+│       │   │   ├── 82
+│       │   │   │   └── 89cb63738c88756e373156923ca5c6de4518d0
+│       │   │   ├── 83
+│       │   │   │   └── 4719977705a2b386f16dd869872e0f0028c88e
+│       │   │   ├── 8d
+│       │   │   │   ├── 1ffe6ce969d68fee6740c810260b4c00461738
+│       │   │   │   └── 8da75194ab62a61247a58f09ab2f73126ae803
+│       │   │   ├── 8e
+│       │   │   │   └── ff1e0b58dccd1bf0bf0785f1df76ea03593555
+│       │   │   ├── 91
+│       │   │   │   └── 137e80683afb5a4fc95fcdef878d210dee0fa0
+│       │   │   ├── 92
+│       │   │   │   ├── 13783a33aa495a3c2d3791c7c5888d90607a4e
+│       │   │   │   └── 83cbf77228a1a90a0f6d924d991aa16fdb3784
+│       │   │   ├── 9d
+│       │   │   │   └── 0d2fdf6b66430191b1aa43ab66f8379c392c5f
+│       │   │   ├── a5
+│       │   │   │   └── 861d6986d85dd65a8caa53f08b4bd5408a4d3f
+│       │   │   ├── a6
+│       │   │   │   └── 344aac8c09253b3b630fb776ae94478aa0275b
+│       │   │   ├── aa
+│       │   │   │   └── ca9e3a9cc8b187fef58dce31e7c54831282090
+│       │   │   ├── ac
+│       │   │   │   ├── 898aeac4ef16b01b9c73fa212a9736a212869f
+│       │   │   │   └── c3627f2591ef3a00ca30e2838a541253d63d0c
+│       │   │   ├── b7
+│       │   │   │   └── 455b19c02d51ab575a8379cc9a0873938b40e6
+│       │   │   ├── b8
+│       │   │   │   └── 28399c4a48c7efa8abaa7f6ea695c08da8d2c3
+│       │   │   ├── bb
+│       │   │   │   └── 0f80ea2dce1fb06fb3ec4bdd0a39647f3f9c50
+│       │   │   ├── be
+│       │   │   │   └── d9a0ea3d85d2bd4961d5991c17ef6732d75f1f
+│       │   │   ├── c0
+│       │   │   │   └── 77ce7312b460a752feded3754362d950645a1d
+│       │   │   ├── c3
+│       │   │   │   └── 048587f403be5134d92a477ba807cd5d763a72
+│       │   │   ├── c5
+│       │   │   │   └── 7675e882f6a4116aa407c89417164e12a5b492
+│       │   │   ├── c7
+│       │   │   │   └── 1b77c89797e1feba43ac99b3de3980b861a8c9
+│       │   │   ├── c9
+│       │   │   │   └── d1f8f96ef8b1b61462fe6f15f8f39659a30917
+│       │   │   ├── ca
+│       │   │   │   └── 362ea72ca5b4aea598f7e81e0c61af1f2b14d2
+│       │   │   ├── cf
+│       │   │   │   └── dc33652a90585130061a8e7099d907a00e4af3
+│       │   │   ├── d2
+│       │   │   │   └── 0a220035dfe09c8b9d69e49a40f05e1a5fbef8
+│       │   │   ├── d3
+│       │   │   │   └── 83a47f033adfb420a438881bec80699e8220bb
+│       │   │   ├── d5
+│       │   │   │   └── 82a6a3fbfd6f871c91c69c3a06388232df3847
+│       │   │   ├── d7
+│       │   │   │   └── 198d3e5cab2eb6cf9d2d6f1b0b9c586d2b802d
+│       │   │   ├── d8
+│       │   │   │   └── ecb6540f6212b0fd26fb443e33814137864aea
+│       │   │   ├── df
+│       │   │   │   └── 46837872197e070660b9d6406b5103cc886ec0
+│       │   │   ├── e0
+│       │   │   │   └── c32e1367e7314416952cf62e317f5169e3711d
+│       │   │   ├── e4
+│       │   │   │   └── b7c394739bf8bdcbda4b42fc46ae0b033ccba0
+│       │   │   ├── ec
+│       │   │   │   └── e95b332986fd413f804ae02e5b418611b2de51
+│       │   │   ├── ee
+│       │   │   │   └── 92d4fbfc3c5d7835e4ec387eac2ff8d1664c69
+│       │   │   ├── f4
+│       │   │   │   └── cdc0b5dfa966dd5b7653652efad7d6ff5690ed
+│       │   │   ├── f7
+│       │   │   │   ├── 640f94e81bb7f4f04daf1668850b38763a13d9
+│       │   │   │   └── 8d19ce287f94fff1dbedf3bf0d2e308d7edcb2
+│       │   │   ├── f8
+│       │   │   │   └── 2edc470f5ac379e21c165303ecf007e43b6727
+│       │   │   ├── f9
+│       │   │   │   └── 2a311eb33318713315a98ada00248eabc5726a
+│       │   │   ├── fb
+│       │   │   │   └── fc4e13315e9d625839fab4f44882e1974257fd
+│       │   │   ├── info
+│       │   │   └── pack
+│       │   ├── packed-refs
+│       │   └── refs
+│       │       ├── heads
+│       │       │   └── main
+│       │       ├── remotes
+│       │       │   └── origin
+│       │       │       └── HEAD
+│       │       └── tags
+│       ├── .gitattributes
+│       ├── 1_Pooling
+│       │   └── config.json
+│       ├── README.md
+│       ├── config.json
+│       ├── config_sentence_transformers.json
+│       ├── model.safetensors
+│       ├── modules.json
+│       ├── results
+│       │   ├── Classification
+│       │   │   ├── scores_amazon_counterfactual_classification.json
+│       │   │   ├── scores_amazon_review_classification.json
+│       │   │   ├── scores_massive_intent_classification.json
+│       │   │   └── scores_massive_scenario_classification.json
+│       │   ├── Clustering
+│       │   │   ├── scores_livedoor_news.json
+│       │   │   └── scores_mewsc16.json
+│       │   ├── PairClassification
+│       │   │   └── scores_paws_x_ja.json
+│       │   ├── Reranking
+│       │   │   └── scores_esci.json
+│       │   ├── Retrieval
+│       │   │   ├── scores_jagovfaqs_22k.json
+│       │   │   ├── scores_jaqket.json
+│       │   │   ├── scores_mrtydi.json
+│       │   │   ├── scores_nlp_journal_abs_intro.json
+│       │   │   ├── scores_nlp_journal_title_abs.json
+│       │   │   └── scores_nlp_journal_title_intro.json
+│       │   ├── STS
+│       │   │   ├── scores_jsick.json
+│       │   │   └── scores_jsts.json
+│       │   └── summary.json
+│       ├── results-len512
+│       │   ├── Classification
+│       │   │   ├── scores_amazon_counterfactual_classification.json
+│       │   │   ├── scores_amazon_review_classification.json
+│       │   │   ├── scores_massive_intent_classification.json
+│       │   │   └── scores_massive_scenario_classification.json
+│       │   ├── Clustering
+│       │   │   ├── scores_livedoor_news.json
+│       │   │   └── scores_mewsc16.json
+│       │   ├── PairClassification
+│       │   │   └── scores_paws_x_ja.json
+│       │   ├── Reranking
+│       │   │   └── scores_esci.json
+│       │   ├── Retrieval
+│       │   │   ├── scores_jagovfaqs_22k.json
+│       │   │   ├── scores_jaqket.json
+│       │   │   ├── scores_mrtydi.json
+│       │   │   ├── scores_nlp_journal_abs_intro.json
+│       │   │   ├── scores_nlp_journal_title_abs.json
+│       │   │   └── scores_nlp_journal_title_intro.json
+│       │   ├── STS
+│       │   │   ├── scores_jsick.json
+│       │   │   └── scores_jsts.json
+│       │   └── summary.json
+│       ├── sentence_bert_config.json
+│       ├── special_tokens_map.json
+│       ├── tokenizer.json
+│       ├── tokenizer.model
+│       └── tokenizer_config.json
+├── ontology
+│   ├── README.md
+│   ├── advanced
+│   │   └── indirect_emotion_ontology.cypher
+│   ├── cultural
+│   │   ├── food_culture_ontology.cypher
+│   │   └── story_classification_ontology.cypher
+│   ├── emotions
+│   │   ├── create_emotion_nodes.cypher
+│   │   ├── create_emotion_relationships.cypher
+│   │   ├── emotion_queries.cypher
+│   │   └── load_emotions_from_csv.cypher
+│   ├── foundation
+│   │   ├── emotion_ontology.cypher
+│   │   ├── natural_ontology.cypher
+│   │   ├── sensation_ontology.cypher
+│   │   ├── spatial_ontology.cypher
+│   │   └── temporal_ontology.cypher
+│   ├── integrated_manager.py
+│   ├── meta
+│   │   └── meta_graph.cypher
+│   ├── relational
+│   │   ├── action_ontology.cypher
+│   │   ├── causality_ontology.cypher
+│   │   └── relationship_ontology.cypher
+│   └── structural
+│       ├── character_function.cypher
+│       ├── discourse_structure.cypher
+│       └── narrative_structure.cypher
+├── アプリの目的.md
+└── 要件定義書_v3.2_100.md
+
+144 directories, 258 files

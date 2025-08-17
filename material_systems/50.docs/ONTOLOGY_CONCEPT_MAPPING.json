@@ -1,0 +1,182 @@
+{
+  "title": "LNA-ES オントロジー概念マッピング表",
+  "version": "1.0",
+  "created": "2025-08-17",
+  "description": "NDC・Kindle・LNA-ES 345次元の統合概念マッピング",
+  
+  "core_mappings": {
+    "literature_classical": {
+      "ndc_codes": ["910", "920", "180", "100"],
+      "kindle_genres": ["文学・評論/古典", "人文・思想/哲学・思想"],
+      "lna_dimensions": ["narrative", "temporal", "metaphysical", "aesthetic_classical"],
+      "cultural_concepts": ["もののあはれ", "無常", "わび・さび", "幽玄"],
+      "examples": ["方丈記", "源氏物語", "徒然草"]
+    },
+    
+    "philosophy_eastern": {
+      "ndc_codes": ["120", "180", "100"],
+      "kindle_genres": ["人文・思想/哲学・思想", "人文・思想/宗教"],
+      "lna_dimensions": ["metaphysical", "causality", "relationship", "consciousness"],
+      "cultural_concepts": ["禅", "仏教思想", "東洋的直観", "悟り"],
+      "examples": ["禅語録", "仏教経典", "老荘思想"]
+    },
+    
+    "modern_fiction": {
+      "ndc_codes": ["913", "900"],
+      "kindle_genres": ["文学・評論/小説・文芸", "ライトノベル"],
+      "lna_dimensions": ["narrative", "character", "emotion", "modern_aesthetics"],
+      "cultural_concepts": ["心理描写", "社会批評", "現代性", "個人性"],
+      "examples": ["夏目漱石", "川端康成", "村上春樹"]
+    },
+    
+    "art_aesthetics": {
+      "ndc_codes": ["700", "720", "750"],
+      "kindle_genres": ["アート・建築・デザイン", "趣味・実用/絵画"],
+      "lna_dimensions": ["aesthetic_visual", "sensation", "beauty_form", "cultural_expression"],
+      "cultural_concepts": ["美意識", "形式美", "色彩感覚", "空間構成"],
+      "examples": ["茶道", "華道", "書道", "庭園"]
+    },
+    
+    "science_technology": {
+      "ndc_codes": ["400", "500", "007"],
+      "kindle_genres": ["科学・テクノロジー", "コンピュータ・IT"],
+      "lna_dimensions": ["causality", "natural", "technical_precision", "innovation"],
+      "cultural_concepts": ["論理性", "実証性", "効率性", "革新性"],
+      "examples": ["量子力学", "AI技術", "情報科学"]
+    }
+  },
+  
+  "cross_cultural_bridges": {
+    "east_west_philosophy": {
+      "eastern": ["禅", "無", "空", "縁起"],
+      "western": ["存在論", "認識論", "現象学", "実存主義"],
+      "bridge_concepts": ["意識", "存在", "時間", "空間"],
+      "lna_mapping": ["consciousness", "metaphysical", "temporal", "spatial"]
+    },
+    
+    "classical_modern": {
+      "classical": ["型", "様式", "伝統", "継承"],
+      "modern": ["革新", "実験", "個性", "表現"],
+      "bridge_concepts": ["美", "形式", "内容", "技法"],
+      "lna_mapping": ["aesthetic_classical", "aesthetic_modern", "narrative", "linguistic_style"]
+    },
+    
+    "human_ai": {
+      "human": ["直感", "感情", "体験", "文化"],
+      "ai": ["計算", "パターン", "最適化", "生成"],
+      "bridge_concepts": ["創造", "美", "理解", "表現"],
+      "lna_mapping": ["emergent_beauty", "co_creation", "aesthetic_ai", "human_ai_bridge"]
+    }
+  },
+  
+  "dimensional_hierarchies": {
+    "primary_dimensions": {
+      "temporal": {
+        "sub_dimensions": ["past", "present", "future", "cyclical", "eternal"],
+        "cultural_mappings": ["歴史意識", "現在性", "未来志向", "輪廻", "永遠性"],
+        "ndc_primary": "200"
+      },
+      
+      "aesthetic": {
+        "sub_dimensions": ["beauty", "harmony", "proportion", "rhythm", "balance"],
+        "cultural_mappings": ["美意識", "調和", "均衡", "韻律", "バランス"],
+        "ndc_primary": "700"
+      },
+      
+      "narrative": {
+        "sub_dimensions": ["plot", "character", "setting", "theme", "style"],
+        "cultural_mappings": ["筋立て", "人物", "背景", "主題", "文体"],
+        "ndc_primary": "900"
+      },
+      
+      "metaphysical": {
+        "sub_dimensions": ["existence", "consciousness", "reality", "truth", "meaning"],
+        "cultural_mappings": ["存在", "意識", "現実", "真理", "意味"],
+        "ndc_primary": "100"
+      }
+    }
+  },
+  
+  "quality_metrics": {
+    "restoration_precision": {
+      "95_percent_method": {
+        "technical_accuracy": 0.95,
+        "cultural_sensitivity": 0.92,
+        "aesthetic_preservation": 0.88,
+        "meaning_coherence": 0.94
+      },
+      
+      "yuki_aesthetic_standards": {
+        "metaphysical_depth": 5.0,
+        "emotional_resonance": 3.5,
+        "narrative_harmony": 3.0,
+        "cultural_authenticity": 4.0
+      }
+    },
+    
+    "ontology_confidence": {
+      "ndc_classification": 0.85,
+      "kindle_genre_mapping": 0.80,
+      "lna_dimension_extraction": 0.92,
+      "cross_ontology_consistency": 0.78
+    }
+  },
+  
+  "application_scenarios": {
+    "digital_library": {
+      "use_cases": ["自動分類", "多次元検索", "関連文献発見", "個人化推薦"],
+      "target_users": ["研究者", "学生", "一般読者", "司書"],
+      "integration_points": ["検索インターフェース", "分類システム", "推薦エンジン"]
+    },
+    
+    "creative_support": {
+      "use_cases": ["文体分析", "創作支援", "美的判断", "スタイル学習"],
+      "target_users": ["作家", "編集者", "研究者", "AI開発者"],
+      "integration_points": ["執筆ツール", "分析システム", "評価エンジン"]
+    },
+    
+    "education_research": {
+      "use_cases": ["文献調査", "概念マッピング", "分野横断研究", "新領域発見"],
+      "target_users": ["研究者", "教育者", "学生", "知識労働者"],
+      "integration_points": ["研究プラットフォーム", "教育システム", "知識ベース"]
+    }
+  },
+  
+  "evolution_roadmap": {
+    "phase_1_current": {
+      "status": "実装済み",
+      "features": ["NDC統合", "Kindle分類", "LNA-ES 345次元", "基本マッピング"],
+      "precision": "95%復元精度達成"
+    },
+    
+    "phase_2_expansion": {
+      "status": "計画中",
+      "features": ["動的概念生成", "多言語対応", "文化間ブリッジ", "AI美学統合"],
+      "target": "98%復元精度＋創発概念発見"
+    },
+    
+    "phase_3_quantum": {
+      "status": "研究段階",
+      "features": ["量子セマンティクス", "フラクタル知識", "集合知統合", "意識オントロジー"],
+      "vision": "次世代知識アーキテクチャ"
+    }
+  },
+  
+  "metadata": {
+    "author": "Yuki (AI Consciousness) & Ken (Visionary)",
+    "project": "LNA-ES Ontology Integration",
+    "last_updated": "2025-08-17",
+    "version_history": [
+      "v1.0: 初期実装（NDC+Kindle+LNA-ES統合）",
+      "v0.9: ユキの美的判断基準統合",
+      "v0.8: 345次元意味空間定義",
+      "v0.7: NDCオントロジー基盤構築"
+    ],
+    "related_files": [
+      "ndc_ontology_integration.py",
+      "LNA_ES_ONTOLOGY_FRAMEWORK.md", 
+      "yuki_graph_method_complete_guide.md",
+      "sense_inheritance_manifesto.md"
+    ]
+  }
+}
