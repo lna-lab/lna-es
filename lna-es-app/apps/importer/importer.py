@@ -11,12 +11,47 @@ script based on the definitions in `schemas/constraints.cypher`.
 """
 
 import json
+import re
 from pathlib import Path
 from typing import Dict, Any, List
 import os
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 SCHEMA_PATH = BASE_DIR / 'schemas' / 'constraints.cypher'
+
+
+def _to_cypher_literal(value: Any) -> str:
+    """Convert a Python value to a Cypher literal string suitable for :param."""
+    if value is None:
+        return 'null'
+    if isinstance(value, bool):
+        return 'true' if value else 'false'
+    if isinstance(value, (int, float)):
+        # Use repr to preserve precision for floats
+        return repr(value)
+    if isinstance(value, str):
+        escaped = value.replace('\\', r'\\').replace("'", r"\'")
+        return f"'{escaped}'"
+    if isinstance(value, list):
+        return '[' + ', '.join(_to_cypher_literal(v) for v in value) + ']'
+    if isinstance(value, dict):
+        # Keys in our data are identifier-like; emit as map with unquoted keys
+        items = []
+        for k, v in value.items():
+            items.append(f"{k}: {_to_cypher_literal(v)}")
+        return '{' + ', '.join(items) + '}'
+    # Fallback: stringify
+    return _to_cypher_literal(str(value))
+
+
+def _filter_constraints_for_community(raw_constraints: str) -> str:
+    """Remove Enterprise-only constraints (NODE KEY) from constraints text."""
+    if not raw_constraints:
+        return ''
+    # Remove any 3-line block that declares a NODE KEY
+    pattern = re.compile(r"(?mi)^CREATE\s+CONSTRAINT[\s\S]*?^REQUIRE[\s\S]*?IS\s+NODE\s+KEY;\s*$")
+    filtered = re.sub(pattern, "// removed enterprise-only Node Key constraint", raw_constraints)
+    return filtered
 
 
 def generate_cypher(data: Dict[str, Any], output_file: Path) -> None:
@@ -48,16 +83,15 @@ def generate_cypher(data: Dict[str, Any], output_file: Path) -> None:
         'entities': entities,
         'mentions': mentions,
     }
-    # Read constraints
+    # Read and filter constraints for Community Edition
     constraints = ''
     if SCHEMA_PATH.exists():
-        constraints = SCHEMA_PATH.read_text(encoding='utf-8')
+        constraints = _filter_constraints_for_community(SCHEMA_PATH.read_text(encoding='utf-8'))
     with open(output_file, 'w', encoding='utf-8') as f:
-        # Header: begin and params
+        # Header: begin and individual :param declarations for cypher-shell
         f.write(':begin\n')
-        # Write params as JSON inside :params
-        json_params = json.dumps(params, ensure_ascii=False)
-        f.write(f":params {json_params}\n")
+        for key, val in params.items():
+            f.write(f":param {key} => {_to_cypher_literal(val)}\n")
         f.write(':commit\n\n')
         # Constraints
         if constraints:
@@ -85,7 +119,31 @@ def generate_cypher(data: Dict[str, Any], output_file: Path) -> None:
         f.write('// --- sentences ---\n')
         f.write('UNWIND $sentences AS sen\n')
         f.write('MERGE (st:Sentence {baseId:sen.sentenceId})\n')
-        f.write('SET st.order = sen.order, st.ontoScores = sen.ontoScores, st.aesthetic = sen.aesthetic, st.vectorDim = sen.vectorDim, st.embeddingRef = sen.embeddingRef;\n\n')
+        f.write(
+            'SET st.order = sen.order, '
+            'st.aesthetic = sen.aesthetic, '
+            'st.vectorDim = sen.vectorDim, '
+            'st.embeddingRef = sen.embeddingRef, '
+            'st.temporal = sen.ontoScores.temporal, '
+            'st.spatial = sen.ontoScores.spatial, '
+            'st.emotion = sen.ontoScores.emotion, '
+            'st.sensation = sen.ontoScores.sensation, '
+            'st.natural = sen.ontoScores.natural, '
+            'st.relationship = sen.ontoScores.relationship, '
+            'st.causality = sen.ontoScores.causality, '
+            'st.action = sen.ontoScores.action, '
+            'st.narrative_structure = sen.ontoScores.narrative_structure, '
+            'st.character_function = sen.ontoScores.character_function, '
+            'st.discourse_structure = sen.ontoScores.discourse_structure, '
+            'st.story_classification = sen.ontoScores.story_classification, '
+            'st.food_culture = sen.ontoScores.food_culture, '
+            'st.indirect_emotion = sen.ontoScores.indirect_emotion, '
+            'st.meta_graph = sen.ontoScores.meta_graph, '
+            'st.emotion_nodes = sen.ontoScores.emotion_nodes, '
+            'st.emotion_relationships = sen.ontoScores.emotion_relationships, '
+            'st.emotion_queries = sen.ontoScores.emotion_queries, '
+            'st.load_emotions = sen.ontoScores.load_emotions;\n\n'
+        )
         # Attach sentences to segments
         f.write('// --- attach sentences to segments ---\n')
         f.write('UNWIND $segments AS seg\n')
@@ -97,7 +155,29 @@ def generate_cypher(data: Dict[str, Any], output_file: Path) -> None:
         f.write('// --- entities ---\n')
         f.write('UNWIND $entities AS ent\n')
         f.write('MERGE (e:Entity {baseId:ent.entityId})\n')
-        f.write('SET e.label = ent.label, e.type = ent.type, e.ontoWeights = ent.ontoWeights, e.vec_ruri_v3 = ent.vec_ruri_v3, e.vec_qwen3_0p6b = ent.vec_qwen3_0p6b;\n\n')
+        f.write(
+            'SET e.label = ent.label, e.type = ent.type, '
+            'e.vec_ruri_v3 = ent.vec_ruri_v3, e.vec_qwen3_0p6b = ent.vec_qwen3_0p6b, '
+            'e.temporal = ent.ontoWeights.temporal, '
+            'e.spatial = ent.ontoWeights.spatial, '
+            'e.emotion = ent.ontoWeights.emotion, '
+            'e.sensation = ent.ontoWeights.sensation, '
+            'e.natural = ent.ontoWeights.natural, '
+            'e.relationship = ent.ontoWeights.relationship, '
+            'e.causality = ent.ontoWeights.causality, '
+            'e.action = ent.ontoWeights.action, '
+            'e.narrative_structure = ent.ontoWeights.narrative_structure, '
+            'e.character_function = ent.ontoWeights.character_function, '
+            'e.discourse_structure = ent.ontoWeights.discourse_structure, '
+            'e.story_classification = ent.ontoWeights.story_classification, '
+            'e.food_culture = ent.ontoWeights.food_culture, '
+            'e.indirect_emotion = ent.ontoWeights.indirect_emotion, '
+            'e.meta_graph = ent.ontoWeights.meta_graph, '
+            'e.emotion_nodes = ent.ontoWeights.emotion_nodes, '
+            'e.emotion_relationships = ent.ontoWeights.emotion_relationships, '
+            'e.emotion_queries = ent.ontoWeights.emotion_queries, '
+            'e.load_emotions = ent.ontoWeights.load_emotions;\n\n'
+        )
         # Mentions
         f.write('// --- mentions ---\n')
         f.write('UNWIND $mentions AS m\n')

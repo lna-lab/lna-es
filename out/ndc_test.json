@@ -1,0 +1,39 @@
+{
+  "primary_classification": {
+    "ndc_code": "900",
+    "name": "文学",
+    "name_en": "Literature",
+    "confidence": 1.0
+  },
+  "secondary_classifications": [
+    {
+      "ndc_code": "200",
+      "name": "歴史",
+      "confidence": 0.44444444444444453
+    },
+    {
+      "ndc_code": "800",
+      "name": "言語",
+      "confidence": 0.22222222222222227
+    }
+  ],
+  "detailed_analysis": {
+    "semantic_indicators": [],
+    "lna_mapping": {
+      "temporal": [
+        "200: 歴史"
+      ],
+      "narrative": [
+        "800: 言語",
+        "900: 文学"
+      ]
+    },
+    "all_scores": {
+      "000": 0.0,
+      "100": 0.0,
+      "200": 0.44444444444444453,
+      "800": 0.22222222222222227,
+      "900": 1.0
+    }
+  }
+}

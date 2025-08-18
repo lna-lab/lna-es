@@ -1,0 +1,47 @@
+[
+  {
+    "original_quality": 0.9003914955637283,
+    "fine_tuned_quality": 0.5128016531897838,
+    "improvement": -0.38758984237394456,
+    "achieved_95_percent": false,
+    "tuning_parameters": {
+      "emotion_sensitivity": 1.05,
+      "aesthetic_amplification": 1.08,
+      "depth_emphasis": 1.1,
+      "relationship_boost": 1.06,
+      "indirect_emotion_boost": 1.12,
+      "coherence_bonus": 0.03,
+      "quantum_resonance": 0.02
+    }
+  },
+  {
+    "original_quality": 0.8833499822985488,
+    "fine_tuned_quality": 0.5,
+    "improvement": -0.3833499822985488,
+    "achieved_95_percent": false,
+    "tuning_parameters": {
+      "emotion_sensitivity": 1.05,
+      "aesthetic_amplification": 1.08,
+      "depth_emphasis": 1.1,
+      "relationship_boost": 1.06,
+      "indirect_emotion_boost": 1.12,
+      "coherence_bonus": 0.03,
+      "quantum_resonance": 0.02
+    }
+  },
+  {
+    "original_quality": 0.827995,
+    "fine_tuned_quality": 0.5,
+    "improvement": -0.32799500000000004,
+    "achieved_95_percent": false,
+    "tuning_parameters": {
+      "emotion_sensitivity": 1.05,
+      "aesthetic_amplification": 1.08,
+      "depth_emphasis": 1.1,
+      "relationship_boost": 1.06,
+      "indirect_emotion_boost": 1.12,
+      "coherence_bonus": 0.03,
+      "quantum_resonance": 0.02
+    }
+  }
+]

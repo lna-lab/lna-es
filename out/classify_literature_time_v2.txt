@@ -1,0 +1,20 @@
+INFO:src.enhanced_classification:Loaded enhanced NDC data: 新訂10版
+INFO:src.enhanced_classification:Loaded enhanced Kindle data: 30 categories
+        0.06 real         0.05 user         0.00 sys
+            29753344  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2592  page reclaims
+                  78  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  56  involuntary context switches
+           808114070  instructions retired
+           263297203  cycles elapsed
+            20971808  peak memory footprint

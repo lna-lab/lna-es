@@ -1,0 +1,68 @@
+{
+  "ndc": {
+    "classifications": [
+      {
+        "code": "000",
+        "name": "総記",
+        "score": 0.0,
+        "matches": 0
+      },
+      {
+        "code": "100",
+        "name": "哲学",
+        "score": 0.0,
+        "matches": 0
+      },
+      {
+        "code": "200",
+        "name": "歴史",
+        "score": 0.0,
+        "matches": 0
+      }
+    ],
+    "method": "enhanced_keyword_matching"
+  },
+  "kindle": {
+    "classifications": [
+      {
+        "category": "文学・評論",
+        "score": 0.0,
+        "matches": 0
+      },
+      {
+        "category": "コンピュータ・IT",
+        "score": 0.0,
+        "matches": 0
+      },
+      {
+        "category": "アート・建築・デザイン",
+        "score": 0.0,
+        "matches": 0
+      }
+    ],
+    "method": "enhanced_keyword_matching"
+  },
+  "ontology_weights": {
+    "temporal": 0.3333333333333333,
+    "spatial": 0.4444444444444444,
+    "emotion": 0.2222222222222222,
+    "sensation": 0.0,
+    "natural": 0.0,
+    "relationship": 0.0,
+    "causality": 0.0,
+    "action": 0.0,
+    "narrative_structure": 0.0,
+    "character_function": 0.0,
+    "discourse_structure": 0.0,
+    "story_classification": 0.0,
+    "food_culture": 0.0,
+    "indirect_emotion": 0.0,
+    "meta_graph": 0.0,
+    "emotion_nodes": 0.0,
+    "emotion_relationships": 0.0,
+    "emotion_queries": 0.0,
+    "load_emotions": 0.0
+  },
+  "integration_method": "ndc_kindle_ontology_fusion",
+  "confidence": 0.14814814814814814
+}

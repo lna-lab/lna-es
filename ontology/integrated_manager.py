@@ -46,6 +46,10 @@ class LNAESv3OntologyManager:
     """
     
     def __init__(self, config_path: Optional[str] = None):
+        # Setup logging first
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
+        
         self.config_path = config_path or self._get_default_config_path()
         self.ontologies: Dict[str, OntologyConfig] = {}
         self.neo4j_driver = None
@@ -53,10 +57,6 @@ class LNAESv3OntologyManager:
         
         # Load configuration
         self._load_ontology_configs()
-        
-        # Setup logging
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
         
     def _get_default_config_path(self) -> str:
         """Get default configuration file path"""
@@ -267,10 +267,20 @@ class LNAESv3OntologyManager:
             with open(ontology_path, 'r', encoding='utf-8') as f:
                 cypher_content = f.read()
             
+            # Split cypher statements by semicolon and execute individually
+            statements = [stmt.strip() for stmt in cypher_content.split(';') if stmt.strip()]
+            
             with self.neo4j_driver.session() as session:
-                # Execute cypher commands
-                session.run(cypher_content)
-                self.logger.info(f"Successfully loaded ontology: {ontology_name}")
+                for i, statement in enumerate(statements):
+                    if statement:  # Skip empty statements
+                        try:
+                            session.run(statement)
+                            self.logger.debug(f"Executed statement {i+1}/{len(statements)} for {ontology_name}")
+                        except Exception as stmt_error:
+                            self.logger.warning(f"Statement {i+1} failed for {ontology_name}: {stmt_error}")
+                            # Continue with next statement instead of failing completely
+                
+                self.logger.info(f"Successfully loaded ontology: {ontology_name} ({len(statements)} statements)")
                 return True
                 
         except Exception as e:

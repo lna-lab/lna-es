@@ -1,0 +1,15 @@
+{
+  "ruri_v3": {
+    "loaded": false,
+    "path": "/Users/liberty/Dropbox/LinaKenLifeLab/LNALab/LNA-ES/lna-es_v3.0/models/Ruri_V3_310m",
+    "dimensions": 768,
+    "language": "japanese"
+  },
+  "qwen3": {
+    "loaded": false,
+    "path": "/Users/liberty/Dropbox/LinaKenLifeLab/LNALab/LNA-ES/lna-es_v3.0/models/Qwen3-Embedding/Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "dimensions": 768,
+    "format": "gguf"
+  },
+  "cache_size": 0
+}

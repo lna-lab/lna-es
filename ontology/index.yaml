@@ -1,0 +1,251 @@
+lna_es_version: '3.0'
+ontology_system: 19-dimensional  # Updated from 15 to actual count
+aesthetic_integration: yuki_standards
+last_updated: '2025-08-17'
+
+# 実際のオントロジー構成（19個のCypherファイル）
+layers:
+  foundation:
+    count: 5
+    weight_base: 1.0
+    description: "基礎的概念・体験の層"
+    ontologies:
+      - temporal_ontology
+      - spatial_ontology
+      - emotion_ontology
+      - sensation_ontology
+      - natural_ontology
+
+  relational:
+    count: 3
+    weight_base: 0.95
+    description: "関係性・因果の層"
+    ontologies:
+      - relationship_ontology
+      - causality_ontology
+      - action_ontology
+
+  structural:
+    count: 3
+    weight_base: 0.9
+    description: "構造・パターンの層"
+    ontologies:
+      - narrative_structure
+      - character_function
+      - discourse_structure
+
+  cultural:
+    count: 2
+    weight_base: 0.85
+    description: "文化・分類の層"
+    ontologies:
+      - story_classification_ontology
+      - food_culture_ontology
+
+  advanced:
+    count: 1
+    weight_base: 0.8
+    description: "高度・間接表現の層"
+    ontologies:
+      - indirect_emotion_ontology
+
+  meta:
+    count: 1
+    weight_base: 0.75
+    description: "メタ・統合関係の層"
+    ontologies:
+      - meta_graph
+
+  emotions:
+    count: 4
+    weight_base: 0.85
+    description: "感情処理専用の層"
+    ontologies:
+      - create_emotion_nodes
+      - create_emotion_relationships
+      - emotion_queries
+      - load_emotions_from_csv
+
+# 詳細定義（各オントロジーファイルのメタデータ）
+ontology_definitions:
+  # Foundation Layer (5)
+  temporal_ontology:
+    layer: foundation
+    file_path: foundation/temporal_ontology.cypher
+    weight: 1.0
+    aesthetic_multiplier: 1.0
+    concepts: [瞬間, 期間, 循環, 質的時間, 時の流れ]
+    description: "時間概念と時制表現"
+
+  spatial_ontology:
+    layer: foundation
+    file_path: foundation/spatial_ontology.cypher
+    weight: 1.0
+    aesthetic_multiplier: 1.0
+    concepts: [空間, 場所, 方向, 距離, 位置関係]
+    description: "空間概念と位置関係"
+
+  emotion_ontology:
+    layer: foundation
+    file_path: foundation/emotion_ontology.cypher
+    weight: 1.0
+    aesthetic_multiplier: 1.2
+    concepts: [幸せ, 悲しみ, 怒り, 恐れ, 驚き, 嫌悪]
+    description: "基本感情と感情状態"
+
+  sensation_ontology:
+    layer: foundation
+    file_path: foundation/sensation_ontology.cypher
+    weight: 1.0
+    aesthetic_multiplier: 1.0
+    concepts: [視覚, 聴覚, 触覚, 味覚, 嗅覚]
+    description: "感覚体験と知覚"
+
+  natural_ontology:
+    layer: foundation
+    file_path: foundation/natural_ontology.cypher
+    weight: 1.0
+    aesthetic_multiplier: 1.0
+    concepts: [自然, 季節, 天候, 生物, 環境]
+    description: "自然現象と環境"
+
+  # Relational Layer (3)
+  relationship_ontology:
+    layer: relational
+    file_path: relational/relationship_ontology.cypher
+    weight: 0.95
+    aesthetic_multiplier: 1.0
+    concepts: [愛情, 友情, 家族, 社会, 絆]
+    description: "人間関係と社会的結びつき"
+
+  causality_ontology:
+    layer: relational
+    file_path: relational/causality_ontology.cypher
+    weight: 0.95
+    aesthetic_multiplier: 1.1
+    concepts: [原因, 結果, 運命, 必然, 偶然]
+    description: "因果関係と運命論"
+
+  action_ontology:
+    layer: relational
+    file_path: relational/action_ontology.cypher
+    weight: 0.95
+    aesthetic_multiplier: 1.0
+    concepts: [動作, 行為, 移動, 変化, 行動]
+    description: "行動と動作パターン"
+
+  # Structural Layer (3)
+  narrative_structure:
+    layer: structural
+    file_path: structural/narrative_structure.cypher
+    weight: 0.9
+    aesthetic_multiplier: 1.15
+    concepts: [物語, プロット, 構造, 展開, 起承転結]
+    description: "物語構造と叙述パターン"
+
+  character_function:
+    layer: structural
+    file_path: structural/character_function.cypher
+    weight: 0.9
+    aesthetic_multiplier: 1.0
+    concepts: [人物, 主人公, 悪役, 脇役, アーキタイプ]
+    description: "キャラクター機能と役割"
+
+  discourse_structure:
+    layer: structural
+    file_path: structural/discourse_structure.cypher
+    weight: 0.9
+    aesthetic_multiplier: 1.0
+    concepts: [談話, 修辞, 文体, 表現, 構成]
+    description: "談話構造と修辞技法"
+
+  # Cultural Layer (2)
+  story_classification_ontology:
+    layer: cultural
+    file_path: cultural/story_classification_ontology.cypher
+    weight: 0.85
+    aesthetic_multiplier: 1.0
+    concepts: [ジャンル, 定型, パターン, 様式, 形式]
+    description: "物語分類とジャンル体系"
+
+  food_culture_ontology:
+    layer: cultural
+    file_path: cultural/food_culture_ontology.cypher
+    weight: 0.85
+    aesthetic_multiplier: 0.9
+    concepts: [料理, 食文化, 調理法, 味覚, 食材]
+    description: "食文化と料理の世界"
+
+  # Advanced Layer (1)
+  indirect_emotion_ontology:
+    layer: advanced
+    file_path: advanced/indirect_emotion_ontology.cypher
+    weight: 0.8
+    aesthetic_multiplier: 1.25
+    concepts: [比喩, 暗示, 間接表現, 象徴, メタファー]
+    description: "間接的感情表現と比喩"
+
+  # Meta Layer (1)
+  meta_graph:
+    layer: meta
+    file_path: meta/meta_graph.cypher
+    weight: 0.75
+    aesthetic_multiplier: 1.3
+    concepts: [メタ関係, 抽象概念, 統合パターン, 高次構造]
+    description: "メタレベルのグラフ関係"
+
+  # Emotions Layer (4)
+  create_emotion_nodes:
+    layer: emotions
+    file_path: emotions/create_emotion_nodes.cypher
+    weight: 0.85
+    aesthetic_multiplier: 1.1
+    concepts: [感情ノード, 感情分類, 感情階層, 感情状態]
+    description: "感情ノード生成と分類"
+
+  create_emotion_relationships:
+    layer: emotions
+    file_path: emotions/create_emotion_relationships.cypher
+    weight: 0.85
+    aesthetic_multiplier: 1.1
+    concepts: [感情関係, 感情変化, 感情連鎖, 感情相互作用]
+    description: "感情関係パターン構築"
+
+  emotion_queries:
+    layer: emotions
+    file_path: emotions/emotion_queries.cypher
+    weight: 0.85
+    aesthetic_multiplier: 1.05
+    concepts: [感情クエリ, 感情分析, 感情検索, 感情パターン]
+    description: "感情クエリと分析"
+
+  load_emotions_from_csv:
+    layer: emotions
+    file_path: emotions/load_emotions_from_csv.cypher
+    weight: 0.85
+    aesthetic_multiplier: 1.0
+    concepts: [感情データ, 感情初期化, 感情インポート, 感情設定]
+    description: "感情データ読み込み"
+
+# 統計情報
+statistics:
+  total_files: 19
+  total_layers: 6
+  foundation_ratio: 0.263  # 5/19
+  relational_ratio: 0.158  # 3/19
+  structural_ratio: 0.158  # 3/19
+  cultural_ratio: 0.105   # 2/19
+  advanced_ratio: 0.053   # 1/19
+  meta_ratio: 0.053       # 1/19
+  emotions_ratio: 0.211   # 4/19
+
+# ユキの美的判断基準統合
+yuki_aesthetic_standards:
+  metaphysical_depth: 5.0
+  emotional_resonance: 3.5
+  narrative_harmony: 3.0
+  cultural_authenticity: 2.8
+  structural_elegance: 2.5
+
+# 重み付け総計（参考値）
+total_weight_sum: 16.95  # 各オントロジーの基本重みの合計

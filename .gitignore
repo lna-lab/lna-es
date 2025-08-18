@@ -115,3 +115,5 @@ logs/
 # Temporary files
 *.tmp
 *.temp
+material_systems/
+out/material_systems_direct_integration.json

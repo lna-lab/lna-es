@@ -1,0 +1,245 @@
+lna_es_version: '3.0'
+ontology_system: 19-dimensional
+aesthetic_integration: yuki_standards
+ontologies:
+- name: temporal
+  layer: foundation
+  file_path: foundation/temporal_ontology.cypher
+  weight: 1.0
+  description: Time concepts and temporal expressions
+  concepts:
+  - 瞬間
+  - 期間
+  - 循環
+  - 質的時間
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: spatial
+  layer: foundation
+  file_path: foundation/spatial_ontology.cypher
+  weight: 1.0
+  description: Spatial concepts and relationships
+  concepts:
+  - 空間
+  - 場所
+  - 方向
+  - 距離
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: emotion
+  layer: foundation
+  file_path: foundation/emotion_ontology.cypher
+  weight: 1.0
+  description: Emotional expressions and states
+  concepts:
+  - 幸せ
+  - 悲しみ
+  - 怒り
+  - 恐れ
+  - 驚き
+  - 嫌悪
+  format: cypher
+  aesthetic_multiplier: 1.2
+- name: sensation
+  layer: foundation
+  file_path: foundation/sensation_ontology.cypher
+  weight: 1.0
+  description: Sensory experiences and perceptions
+  concepts:
+  - 視覚
+  - 聴覚
+  - 触覚
+  - 味覚
+  - 嗅覚
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: natural
+  layer: foundation
+  file_path: foundation/natural_ontology.cypher
+  weight: 1.0
+  description: Natural phenomena and environment
+  concepts:
+  - 自然
+  - 季節
+  - 天候
+  - 生物
+  - 環境
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: relationship
+  layer: relational
+  file_path: relational/relationship_ontology.cypher
+  weight: 0.95
+  description: Human relationships and social bonds
+  concepts:
+  - 愛情
+  - 友情
+  - 家族
+  - 社会
+  - 絆
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: causality
+  layer: relational
+  file_path: relational/causality_ontology.cypher
+  weight: 0.95
+  description: Cause-effect relationships
+  concepts:
+  - 原因
+  - 結果
+  - 運命
+  - 必然
+  - 偶然
+  format: cypher
+  aesthetic_multiplier: 1.1
+- name: action
+  layer: relational
+  file_path: relational/action_ontology.cypher
+  weight: 0.95
+  description: Actions and movements
+  concepts:
+  - 動作
+  - 行為
+  - 移動
+  - 変化
+  - 行動
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: narrative_structure
+  layer: structural
+  file_path: structural/narrative_structure.cypher
+  weight: 0.9
+  description: Story structure and narrative patterns
+  concepts:
+  - 物語
+  - プロット
+  - 構造
+  - 展開
+  - 起承転結
+  format: cypher
+  aesthetic_multiplier: 1.15
+- name: character_function
+  layer: structural
+  file_path: structural/character_function.cypher
+  weight: 0.9
+  description: Character functions and archetypes
+  concepts:
+  - 人物
+  - 主人公
+  - 悪役
+  - 脇役
+  - アーキタイプ
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: discourse_structure
+  layer: structural
+  file_path: structural/discourse_structure.cypher
+  weight: 0.9
+  description: Discourse structure and rhetoric
+  concepts:
+  - 談話
+  - 修辞
+  - 文体
+  - 表現
+  - 構成
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: story_classification
+  layer: cultural
+  file_path: cultural/story_classification_ontology.cypher
+  weight: 0.85
+  description: Story classification and genre patterns
+  concepts:
+  - ジャンル
+  - 定型
+  - パターン
+  - 様式
+  - 形式
+  format: cypher
+  aesthetic_multiplier: 1.0
+- name: food_culture
+  layer: cultural
+  file_path: cultural/food_culture_ontology.cypher
+  weight: 0.85
+  description: Food culture and culinary traditions
+  concepts:
+  - 料理
+  - 食文化
+  - 調理法
+  - 味覚
+  - 食材
+  format: cypher
+  aesthetic_multiplier: 0.9
+- name: indirect_emotion
+  layer: advanced
+  file_path: advanced/indirect_emotion_ontology.cypher
+  weight: 0.8
+  description: Indirect emotional expressions and metaphors
+  concepts:
+  - 比喩
+  - 暗示
+  - 間接表現
+  - 象徴
+  - メタファー
+  format: cypher
+  aesthetic_multiplier: 1.25
+- name: meta_graph
+  layer: meta
+  file_path: meta/meta_graph.cypher
+  weight: 0.75
+  description: Meta-level graph relationships and patterns
+  concepts:
+  - メタ関係
+  - 抽象概念
+  - 統合パターン
+  - 高次構造
+  format: cypher
+  aesthetic_multiplier: 1.3
+- name: emotion_nodes
+  layer: emotions
+  file_path: emotions/create_emotion_nodes.cypher
+  weight: 0.85
+  description: Emotion node creation and classification
+  concepts:
+  - 感情ノード
+  - 感情分類
+  - 感情階層
+  - 感情状態
+  format: cypher
+  aesthetic_multiplier: 1.1
+- name: emotion_relationships
+  layer: emotions
+  file_path: emotions/create_emotion_relationships.cypher
+  weight: 0.85
+  description: Emotion relationship patterns
+  concepts:
+  - 感情関係
+  - 感情変化
+  - 感情連鎖
+  - 感情相互作用
+  format: cypher
+  aesthetic_multiplier: 1.1
+- name: emotion_queries
+  layer: emotions
+  file_path: emotions/emotion_queries.cypher
+  weight: 0.85
+  description: Emotion query patterns and analysis
+  concepts:
+  - 感情クエリ
+  - 感情分析
+  - 感情検索
+  - 感情パターン
+  format: cypher
+  aesthetic_multiplier: 1.05
+- name: load_emotions
+  layer: emotions
+  file_path: emotions/load_emotions_from_csv.cypher
+  weight: 0.85
+  description: Emotion data loading and initialization
+  concepts:
+  - 感情データ
+  - 感情初期化
+  - 感情インポート
+  - 感情設定
+  format: cypher
+  aesthetic_multiplier: 1.0

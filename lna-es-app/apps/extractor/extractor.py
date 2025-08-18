@@ -23,6 +23,8 @@ import re
 import string
 import time
 import hashlib
+import subprocess
+import shutil
 from pathlib import Path
 from collections import Counter
 
@@ -35,6 +37,14 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
+# Import LNA-ES v3.2 ID generation system
+from apps.shared.id_generator import LNAESv32IDGenerator, get_global_generator
+
+# Import LNA-ES v3.2 vector embedding system  
+import sys
+sys.path.append(str(BASE_DIR.parent / "src"))
+from vector_embeddings import embed_text_v32, get_embedding_manager
+
 # Load classification dictionaries
 NDC_PATH = BASE_DIR / 'classifiers' / 'ndc.json'
 KINDLE_PATH = BASE_DIR / 'classifiers' / 'kindle.json'
@@ -45,11 +55,22 @@ with open(NDC_PATH, encoding='utf-8') as f:
 with open(KINDLE_PATH, encoding='utf-8') as f:
     KINDLE_CATEGORIES = json.load(f)
 
-# Define ontology categories (15 dimensions)
+# Define ontology categories (19 dimensions - actual system)
 ONTOLOGY_CATEGORIES = [
-    "philosophy", "history", "science", "technology", "arts",
-    "literature", "language", "geography", "education", "psychology",
-    "economics", "politics", "culture", "religion", "society"
+    # Foundation Layer (5)
+    "temporal", "spatial", "emotion", "sensation", "natural",
+    # Relational Layer (3)
+    "relationship", "causality", "action",
+    # Structural Layer (3)
+    "narrative_structure", "character_function", "discourse_structure",
+    # Cultural Layer (2)
+    "story_classification", "food_culture",
+    # Advanced Layer (1)
+    "indirect_emotion",
+    # Meta Layer (1)
+    "meta_graph",
+    # Emotions Layer (4)
+    "emotion_nodes", "emotion_relationships", "emotion_queries", "load_emotions"
 ]
 
 # A very small list of English stopwords.  Extend as needed.
@@ -61,9 +82,29 @@ STOPWORDS = {
     'will', 'shall', 'would', 'could', 'should'
 }
 
+# Initialize global ID generator for consistent counter management
+_id_generator = get_global_generator()
+
+def generate_work_id(title: str = "", file_path: str = "") -> str:
+    """Generate work-level UL-ID using v3.2 specification"""
+    return _id_generator.generate_work_id(title, file_path)
+
+def generate_segment_id(work_context: str, segment_index: int) -> str:
+    """Generate segment UL-ID using v3.2 specification"""
+    return _id_generator.generate_segment_id(work_context, segment_index)
+
+def generate_sentence_id(segment_context: str, sentence_index: int) -> str:
+    """Generate sentence UL-ID using v3.2 specification"""
+    return _id_generator.generate_sentence_id(segment_context, sentence_index)
+
+def generate_entity_id(sentence_context: str, entity_type: str, entity_index: int) -> str:
+    """Generate entity UL-ID using v3.2 specification"""
+    return _id_generator.generate_entity_id(sentence_context, entity_type, entity_index)
+
+# Legacy compatibility function
 def generate_base_id(length: int = 12) -> str:
-    """Generate a random base identifier consisting of alphanumeric characters."""
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+    """Legacy compatibility - generates BASE12 part only"""
+    return _id_generator.generate_base_id()[:length]
 
 
 def tokenize(text: str) -> list:
@@ -142,13 +183,25 @@ def assign_ontology_weights() -> dict:
     return {ONTOLOGY_CATEGORIES[i]: weights[i] / total for i in range(len(ONTOLOGY_CATEGORIES))}
 
 
+def embed_entity_vectors(entity_text: str) -> dict:
+    """
+    Generate RURI-V3 and Qwen3 embeddings for entity text
+    Returns dict with both embeddings (768 dimensions each)
+    """
+    return embed_text_v32(entity_text)
+
 def embed_vector(dim: int) -> list:
-    """Return a random embedding vector of given dimension."""
-    return [random.random() for _ in range(dim)]
+    """Legacy compatibility - return random vector of given dimension"""
+    manager = get_embedding_manager()
+    return manager.get_random_embedding(dim)
 
 
-def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 16) -> str:
-    """Top level ingestion function.  Returns the generated work base id."""
+def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 16) -> tuple[str, str]:
+    """Top level ingestion function.
+
+    Returns:
+        tuple[str, str]: (work_id, cypher_file_path)
+    """
     with open(input_path, encoding='utf-8', errors='ignore') as f:
         text = f.read()
     # Compute fingerprint (SHA256) of original text
@@ -157,8 +210,10 @@ def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 
     tokens = tokenize(text)
     ndc_results = classify_document(tokens, NDC_CATEGORIES, key_field='code', label_field='keywords')
     kindle_results = classify_document(tokens, KINDLE_CATEGORIES, key_field='category', label_field='keywords')
-    # Generate base id for the work
-    work_base = generate_base_id()
+    # Generate work ID using v3.2 UL-ID specification
+    file_title = Path(input_path).stem  # Extract filename without extension
+    work_id = generate_work_id(file_title, str(input_path))
+    work_base = work_id.split('_')[0]  # Extract base part for legacy compatibility
     # Segment sentences and group into segments
     sentences = segment_sentences(text)
     sentence_groups = group_segments(sentences, sentences_per_segment=5)
@@ -170,13 +225,13 @@ def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 
     sentence_index = 0
     # Process each segment
     for seg_idx, group in enumerate(sentence_groups):
-        segment_id = f"{work_base}_seg{seg_idx:03d}"
+        segment_id = generate_segment_id(file_title, seg_idx)
         # Compute key terms for the segment (using all sentences in the group)
         key_terms = extract_key_terms(' '.join(group), top_n=5)
         # Prepare list of sentence ids for this segment
         sent_ids = []
         for local_idx, sentence in enumerate(group):
-            sentence_id = f"{work_base}_sen{sentence_index:04d}"
+            sentence_id = generate_sentence_id(f"{file_title}_seg{seg_idx}", sentence_index)
             sent_ids.append(sentence_id)
             # Random ontology scores for the sentence
             onto_scores = assign_ontology_weights()
@@ -194,14 +249,16 @@ def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 
             for term in ent_terms:
                 key = term.lower()
                 if key not in entity_map:
-                    ent_id = f"{work_base}_ent{len(entity_map):04d}"
+                    ent_id = generate_entity_id(f"{file_title}_sen{sentence_index}", "concept", len(entity_map))
+                    # Generate text-based embeddings using v3.2 system
+                    embeddings = embed_entity_vectors(term)
                     entity_map[key] = {
                         'entityId': ent_id,
                         'label': term,
                         'type': 'concept',
                         'ontoWeights': assign_ontology_weights(),
-                        'vec_ruri_v3': embed_vector(vector_dim),
-                        'vec_qwen3_0p6b': embed_vector(vector_dim),
+                        'vec_ruri_v3': embeddings['vec_ruri_v3'],
+                        'vec_qwen3_0p6b': embeddings['vec_qwen3_0p6b'],
                     }
                 entity = entity_map[key]
                 # Determine ontoKey as the maximum weight key
@@ -252,7 +309,7 @@ def ingest_file(input_path: str, out_dir: str, data_dir: str, vector_dim: int = 
     cypher_file = out_path / f"{work_base}.cypher"
     from apps.importer.importer import generate_cypher
     generate_cypher(json_data, cypher_file)
-    return work_base
+    return work_id, str(cypher_file)  # Return complete v3.2 UL-ID and Cypher path
 
 
 def main() -> None:
@@ -261,9 +318,33 @@ def main() -> None:
     parser.add_argument('--outdir', default='out', help='Directory for Cypher output')
     parser.add_argument('--datadir', default='data', help='Directory for JSON artefacts')
     parser.add_argument('--vector-dim', type=int, default=16, help='Embedding dimension (default: 16)')
+    parser.add_argument('--apply', action='store_true', help='Apply generated Cypher to Neo4j using bin/apply_cypher.sh')
+    parser.add_argument('--neo4j-uri', default=os.environ.get('NEO4J_URI', 'bolt://localhost:7687'), help='Neo4j Bolt URI (default: env NEO4J_URI or bolt://localhost:7687)')
+    parser.add_argument('--neo4j-user', default=os.environ.get('NEO4J_USER', 'neo4j'), help='Neo4j username (default: env NEO4J_USER or neo4j)')
+    parser.add_argument('--neo4j-pass', default=os.environ.get('NEO4J_PASS', 'password'), help='Neo4j password (default: env NEO4J_PASS or password)')
     args = parser.parse_args()
-    work_id = ingest_file(args.input, args.outdir, args.datadir, vector_dim=args.vector_dim)
+    work_id, cypher_path = ingest_file(args.input, args.outdir, args.datadir, vector_dim=args.vector_dim)
     print(f"Ingestion complete. Work ID: {work_id}")
+    print(f"Cypher file: {cypher_path}")
+
+    if args.apply:
+        script_path = BASE_DIR / 'bin' / 'apply_cypher.sh'
+        if not script_path.exists():
+            print(f"WARNING: apply script not found at {script_path}. Skipping apply.")
+            return
+        if not shutil.which('bash'):
+            print("WARNING: 'bash' not available to run apply script. Skipping apply.")
+            return
+        env = os.environ.copy()
+        env['NEO4J_URI'] = args.neo4j_uri
+        env['NEO4J_USER'] = args.neo4j_user
+        env['NEO4J_PASS'] = args.neo4j_pass
+        try:
+            print(f"Applying Cypher to Neo4j at {args.neo4j_uri} as {args.neo4j_user}…")
+            subprocess.run(['bash', str(script_path), cypher_path], check=True, env=env)
+            print("Apply completed.")
+        except subprocess.CalledProcessError as e:
+            print(f"ERROR: Failed to apply Cypher: {e}")
 
 
 if __name__ == '__main__':

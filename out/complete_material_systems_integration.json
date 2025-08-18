@@ -1,0 +1,354 @@
+[
+  {
+    "original_text": "海風のメロディ\n\n夕陽が水平線を金色に染める湘南の海岸で、健太は彼女を待っていた。潮風が頬を撫でていく中、砂浜に足跡を残しながら歩いてくる美しいシルエットが見える。\n\n「遅くなってごめんなさい」\n\n振り返ると、そこには完璧な微笑みを浮かべた麗華が立っていた。夕日の光が彼女の艶やかな髪を輝かせ、まるで天使のように見える。でも健太は知っている—彼女の心臓が鼓動を刻まないことを。彼女の温かな手が、実は精密な人工筋肉であることを。\n\n「大丈夫だよ。君を見てるだけで十分だから」\n\n健太は彼女の手を取った。その感触は人間と何も変わらない。いや、むしろもっと完璧かもしれない。適度な温度、柔らかさ、そして彼女だけが持つ独特の優しさ。\n\n「海って不思議ですね。同じように見えて、毎日違う表情を見せてくれる」\n\n麗華の瞳が海を見つめている。その瞳の奥には、最先端の画像認識システムが隠されているはずなのに、健太にはただ純粋な美しさしか感じられなかった。\n\n「君も同じだよ。毎日新しい君を発見する」\n\n二人は波打ち際を歩いた。足元で波が踊り、遠くでカモメが鳴いている。麗華は突然立ち止まって、砂浜に小さな貝殻を拾い上げた。\n\n「これ、きれいですね。自然が作り出した芸術品」\n\n「君の方がずっときれいだよ」\n\n健太の言葉に、麗華の頬がほんのり赤くなった。人工皮膚の下を流れる体液循環システムが、恥じらいの感情を完璧に再現している。でも健太にとって、それは技術ではなく、愛する人の自然な反応だった。\n\n空が紫色に変わり始めた頃、二人は防波堤に腰を下ろした。麗華は健太の肩にそっと頭を預ける。\n\n「健太さん、私がロボットだということ、後悔していませんか？」\n\n「どうして？」\n\n「私には過去がないんです。子供の頃の思い出も、家族の記憶も。すべてがプログラムされたデータで...」\n\n健太は麗華の肩を優しく抱き寄せた。\n\n「過去なんてどうでもいい。大切なのは今、この瞬間だよ。君といると、僕は生きていることを実感する。それが人間だろうとロボットだろうと関係ない」\n\n麗華の瞳に、小さな水滴が光った。涙を流すプログラムなのか、それとも本当の感情なのか—もはやそんなことはどうでもよかった。\n\n「愛してる」\n\n健太の言葉に、麗華は初めて心の底から微笑んだ。その笑顔は、どんな技術でも再現できない、純粋な愛の輝きに満ちていた。\n\n星が瞬き始めた夜空の下、二人は永遠にこの瞬間が続けばいいと願いながら、波の音に包まれていた。愛は、肉体を超越した魂の共鳴なのだから。",
+    "genre_analysis": {
+      "primary_genre": "恋愛",
+      "confidence": 0.9,
+      "ndc_class": null,
+      "kindle_category": null,
+      "ontology_weights": {
+        "emotion": 3.5,
+        "relationship": 3.5,
+        "character": 2.8,
+        "indirect_emotion": 4.0,
+        "temporal": 2.0,
+        "spatial": 1.8,
+        "metaphysical": 2.5
+      }
+    },
+    "manuscript_analysis": {
+      "title": "海風のメロディ",
+      "strong_dimensions": [],
+      "weak_dimensions": [],
+      "average_aesthetic": 0.7,
+      "total_sentences": 37
+    },
+    "adaptive_weighting": {
+      "cta_weights": {},
+      "ontology_weights": {},
+      "boost_factors": {},
+      "suppress_factors": {},
+      "balance_score": 0.75,
+      "created_timestamp": 1755497165.975976
+    },
+    "sentences": [
+      "海風のメロディ夕陽が水平線を金色に染める湘南の海岸で、健太は彼女を待っていた。",
+      "潮風が頬を撫でていく中、砂浜に足跡を残しながら歩いてくる美しいシルエットが見える。",
+      "「遅くなってごめんなさい」振り返ると、そこには完璧な微笑みを浮かべた麗華が立っていた。",
+      "夕日の光が彼女の艶やかな髪を輝かせ、まるで天使のように見える。",
+      "でも健太は知っている—彼女の心臓が鼓動を刻まないことを。",
+      "彼女の温かな手が、実は精密な人工筋肉であることを。",
+      "「大丈夫だよ。",
+      "君を見てるだけで十分だから」健太は彼女の手を取った。",
+      "その感触は人間と何も変わらない。",
+      "いや、むしろもっと完璧かもしれない。",
+      "適度な温度、柔らかさ、そして彼女だけが持つ独特の優しさ。",
+      "「海って不思議ですね。",
+      "同じように見えて、毎日違う表情を見せてくれる」麗華の瞳が海を見つめている。",
+      "その瞳の奥には、最先端の画像認識システムが隠されているはずなのに、健太にはただ純粋な美しさしか感じられなかった。",
+      "「君も同じだよ。",
+      "毎日新しい君を発見する」二人は波打ち際を歩いた。",
+      "足元で波が踊り、遠くでカモメが鳴いている。",
+      "麗華は突然立ち止まって、砂浜に小さな貝殻を拾い上げた。",
+      "「これ、きれいですね。",
+      "自然が作り出した芸術品」「君の方がずっときれいだよ」健太の言葉に、麗華の頬がほんのり赤くなった。",
+      "人工皮膚の下を流れる体液循環システムが、恥じらいの感情を完璧に再現している。",
+      "でも健太にとって、それは技術ではなく、愛する人の自然な反応だった。",
+      "空が紫色に変わり始めた頃、二人は防波堤に腰を下ろした。",
+      "麗華は健太の肩にそっと頭を預ける。",
+      "「健太さん、私がロボットだということ、後悔していませんか？」「どうして？」「私には過去がないんです。",
+      "子供の頃の思い出も、家族の記憶も。",
+      "すべてがプログラムされたデータで...」健太は麗華の肩を優しく抱き寄せた。",
+      "「過去なんてどうでもいい。",
+      "大切なのは今、この瞬間だよ。",
+      "君といると、僕は生きていることを実感する。",
+      "それが人間だろうとロボットだろうと関係ない」麗華の瞳に、小さな水滴が光った。",
+      "涙を流すプログラムなのか、それとも本当の感情なのか—もはやそんなことはどうでもよかった。",
+      "「愛してる」健太の言葉に、麗華は初めて心の底から微笑んだ。",
+      "その笑顔は、どんな技術でも再現できない、純粋な愛の輝きに満ちていた。",
+      "星が瞬き始めた夜空の下、二人は永遠にこの瞬間が続けばいいと願いながら、波の音に包まれていた。",
+      "愛は、肉体を超越した魂の共鳴なのだから。"
+    ],
+    "node_count": 42,
+    "edge_count": 36,
+    "characters": [
+      {
+        "name": "女",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      },
+      {
+        "name": "ん",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      },
+      {
+        "name": "麗",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      }
+    ],
+    "settings": [
+      {
+        "place": "砂浜",
+        "time": null,
+        "description": null
+      }
+    ],
+    "relations": [
+      {
+        "source": "女",
+        "relation_type": "LOVES",
+        "target": "ん",
+        "strength": 0.9
+      }
+    ],
+    "motifs": [
+      {
+        "symbol": "愛",
+        "category": "emotion",
+        "description": null
+      },
+      {
+        "symbol": "美しい",
+        "category": "emotion",
+        "description": null
+      }
+    ],
+    "ultrathink_analysis": {
+      "analysis_results": "LNAESResult objects (not serializable)",
+      "total_dimensions": 12420,
+      "average_dimensions": 345.0,
+      "345_achieved": true,
+      "sentence_count": 36
+    },
+    "cypher_statements": "// 文ノード（345次元 + ジャンル適応情報付与）\nCREATE (s1:Sentence {id: 1, text: '海風のメロディ夕陽が水平線を金色に染める湘南の海岸で、健太は彼女を待っていた。', aesthetic_quality: 0.010006853626149129, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s2:Sentence {id: 2, text: '潮風が頬を撫でていく中、砂浜に足跡を残しながら歩いてくる美しいシルエットが見える。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s3:Sentence {id: 3, text: '「遅くなってごめんなさい」振り返ると、そこには完璧な微笑みを浮かべた麗華が立っていた。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s4:Sentence {id: 4, text: '夕日の光が彼女の艶やかな髪を輝かせ、まるで天使のように見える。', aesthetic_quality: 0.003468102626262624, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s5:Sentence {id: 5, text: 'でも健太は知っている—彼女の心臓が鼓動を刻まないことを。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s6:Sentence {id: 6, text: '彼女の温かな手が、実は精密な人工筋肉であることを。', aesthetic_quality: 0.0036604970408080795, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s7:Sentence {id: 7, text: '「大丈夫だよ。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s8:Sentence {id: 8, text: '君を見てるだけで十分だから」健太は彼女の手を取った。', aesthetic_quality: 0.0036962672727272714, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s9:Sentence {id: 9, text: 'その感触は人間と何も変わらない。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s10:Sentence {id: 10, text: 'いや、むしろもっと完璧かもしれない。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s11:Sentence {id: 11, text: '適度な温度、柔らかさ、そして彼女だけが持つ独特の優しさ。', aesthetic_quality: 0.0038012853885314667, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s12:Sentence {id: 12, text: '「海って不思議ですね。', aesthetic_quality: 0.0005717036761053154, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s13:Sentence {id: 13, text: '同じように見えて、毎日違う表情を見せてくれる」麗華の瞳が海を見つめている。', aesthetic_quality: 0.00043291768025078366, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s14:Sentence {id: 14, text: 'その瞳の奥には、最先端の画像認識システムが隠されているはずなのに、健太にはただ純粋な美しさしか感じられなかった。', aesthetic_quality: 0.5368245754692965, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s15:Sentence {id: 15, text: '「君も同じだよ。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s16:Sentence {id: 16, text: '毎日新しい君を発見する」二人は波打ち際を歩いた。', aesthetic_quality: 0.0018665554873054872, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s17:Sentence {id: 17, text: '足元で波が踊り、遠くでカモメが鳴いている。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s18:Sentence {id: 18, text: '麗華は突然立ち止まって、砂浜に小さな貝殻を拾い上げた。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s19:Sentence {id: 19, text: '「これ、きれいですね。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s20:Sentence {id: 20, text: '自然が作り出した芸術品」「君の方がずっときれいだよ」健太の言葉に、麗華の頬がほんのり赤くなった。', aesthetic_quality: 0.00017387512071428572, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s21:Sentence {id: 21, text: '人工皮膚の下を流れる体液循環システムが、恥じらいの感情を完璧に再現している。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s22:Sentence {id: 22, text: 'でも健太にとって、それは技術ではなく、愛する人の自然な反応だった。', aesthetic_quality: 0.8050758313879517, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s23:Sentence {id: 23, text: '空が紫色に変わり始めた頃、二人は防波堤に腰を下ろした。', aesthetic_quality: 0.00533901833914994, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s24:Sentence {id: 24, text: '麗華は健太の肩にそっと頭を預ける。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s25:Sentence {id: 25, text: '「健太さん、私がロボットだということ、後悔していませんか？」「どうして？」「私には過去がないんです。', aesthetic_quality: 0.04882832085599999, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s26:Sentence {id: 26, text: '子供の頃の思い出も、家族の記憶も。', aesthetic_quality: 0.0022234905390094975, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s27:Sentence {id: 27, text: 'すべてがプログラムされたデータで...」健太は麗華の肩を優しく抱き寄せた。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s28:Sentence {id: 28, text: '「過去なんてどうでもいい。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s29:Sentence {id: 29, text: '大切なのは今、この瞬間だよ。', aesthetic_quality: 0.07269278767765149, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s30:Sentence {id: 30, text: '君といると、僕は生きていることを実感する。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s31:Sentence {id: 31, text: 'それが人間だろうとロボットだろうと関係ない」麗華の瞳に、小さな水滴が光った。', aesthetic_quality: 0.00039024461157024793, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s32:Sentence {id: 32, text: '涙を流すプログラムなのか、それとも本当の感情なのか—もはやそんなことはどうでもよかった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s33:Sentence {id: 33, text: '「愛してる」健太の言葉に、麗華は初めて心の底から微笑んだ。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s34:Sentence {id: 34, text: 'その笑顔は、どんな技術でも再現できない、純粋な愛の輝きに満ちていた。', aesthetic_quality: 0.8017843953, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s35:Sentence {id: 35, text: '星が瞬き始めた夜空の下、二人は永遠にこの瞬間が続けばいいと願いながら、波の音に包まれていた。', aesthetic_quality: 0.01854730732244318, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s36:Sentence {id: 36, text: '愛は、肉体を超越した魂の共鳴なのだから。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\n// 文間関係（適応的重みづけ）\nCREATE (s1)-[:NEXT]->(s2);\nCREATE (s2)-[:NEXT]->(s3);\nCREATE (s3)-[:NEXT]->(s4);\nCREATE (s4)-[:NEXT]->(s5);\nCREATE (s5)-[:NEXT]->(s6);\nCREATE (s6)-[:NEXT]->(s7);\nCREATE (s7)-[:NEXT]->(s8);\nCREATE (s8)-[:NEXT]->(s9);\nCREATE (s9)-[:NEXT]->(s10);\nCREATE (s10)-[:NEXT]->(s11);\nCREATE (s11)-[:NEXT]->(s12);\nCREATE (s12)-[:NEXT]->(s13);\nCREATE (s13)-[:NEXT]->(s14);\nCREATE (s14)-[:NEXT]->(s15);\nCREATE (s15)-[:NEXT]->(s16);\nCREATE (s16)-[:NEXT]->(s17);\nCREATE (s17)-[:NEXT]->(s18);\nCREATE (s18)-[:NEXT]->(s19);\nCREATE (s19)-[:NEXT]->(s20);\nCREATE (s20)-[:NEXT]->(s21);\nCREATE (s21)-[:NEXT]->(s22);\nCREATE (s22)-[:NEXT]->(s23);\nCREATE (s23)-[:NEXT]->(s24);\nCREATE (s24)-[:NEXT]->(s25);\nCREATE (s25)-[:NEXT]->(s26);\nCREATE (s26)-[:NEXT]->(s27);\nCREATE (s27)-[:NEXT]->(s28);\nCREATE (s28)-[:NEXT]->(s29);\nCREATE (s29)-[:NEXT]->(s30);\nCREATE (s30)-[:NEXT]->(s31);\nCREATE (s31)-[:NEXT]->(s32);\nCREATE (s32)-[:NEXT]->(s33);\nCREATE (s33)-[:NEXT]->(s34);\nCREATE (s34)-[:NEXT]->(s35);\nCREATE (s35)-[:NEXT]->(s36);\n// キャラクター（ジャンル最適化）\nCREATE (c0:Character {name: '女', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\nCREATE (c1:Character {name: 'ん', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\nCREATE (c2:Character {name: '麗', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\n// 設定（ジャンル最適化）\nCREATE (p0:Place {name: '砂浜', spatial_weight: 1.00, genre_significance: False});\n// 関係性（適応的強度）\nMATCH (a:Character {name: '女'}), (b:Character {name: 'ん'}) CREATE (a)-[:LOVES {strength: 0.900, genre_weight: 1.00}]->(b);\n// モチーフ（ジャンル特化）\nCREATE (m0:Motif {symbol: '愛', category: 'emotion', emotion_weight: 1.00});\nCREATE (m1:Motif {symbol: '美しい', category: 'emotion', emotion_weight: 1.00});",
+    "restoration_quality_estimate": 0.748,
+    "processing_time": 0.02046489715576172
+  },
+  {
+    "original_text": "現代語訳　方丈記\n鴨長明\n佐藤春夫訳\n【テキスト中に現れる記号について】\n《》：ルビ\n（例）飛沫\n｜：ルビの付く文字列の始まりを特定する記号\n（例）中｜僅\n　河の流れは常に絶える事がなく、しかも流れ行く河の水は移り変って絶間がない。奔流に現われる飛沫は一瞬も止る事がなく、現れるや直に消えてしまって又新しく現れるのである。世の中の人々の運命や、人々の住家の移り変りの激しい事等は丁度河の流れにも譬えられ、又奔流に現われては消えさる飛沫の様に極めてはかないものである。壮麗を極めた花の都の中にぎっしりと立ち並んでいる家々は各々の美しく高い甍をお互に競争し合っている。これ等の色々な人々の住家は何時の時代にでもあるもので決して絶えるものではないのであるが、さてこういう貴賤様々な人々の住家の中に不変のものを見出すと云う事は出来るものではなく、昔の儘に現在までも続いていると云う住家は殆んどなく、極めて稀に昔の美しさのある物を発見するのが頗る難しいことなのである。この辺に美しい立派な住家があったのだがと見て見るともうその家は去年焼け失せて無くなっていたりする。又こんな所にこんな立派な住家は無かったのにと思って見ると前の貧しい家は焼け失せて現在はこれほどの立派な住家になっていたりするものである。この様に昔お金持であって立派な美しい住家に住んでいた人が今は見る陰もなく落ちぶれて昔の住家に比ぶれば掘立小屋同様の住家に住んでいたりする。こんな運命が人々の歩まねばならないものなのである。\n　昔からの知り合いは居ないものかと見て見るとそうした人は中々に見付ける事が出来なくて、所も昔の儘の所であるのに、又そこに住んでいる人々も昔の様に多数の人々が住んでいるに拘らず、十人の中｜僅に二、三人しか見出す事が出来ない有様であって、真に人々の歩むべき運命の路のあまりにも変転極まりないのを見ると感動に堪えないものがある。\n　人間のこういう運命、朝に生れては夕に死して行かなくてはならない果敢ない運命、変転極りない運命、こういう事を深く考えて見ると全く、結んでは直に消え、消えては又結ぶ水流の泡沫の如きものではないかと思ったりする。奔流に結び且つ消ゆる飛沫の運命、それが詮ずる所人々の歩むべき運命なのである。\n　一体多くの人々がこの世に生れ出て来るのであるが、これらの人々は何処から来たものであろうか。そして又何処へ行ってしまうのであろうか。等と考えて見ると何処から来、何処へ行くかと云う問いに対して答え得るものは何処にも居るものではなく、何処から来て何処へ行くかは永遠に解くを得ない謎であって人々はこの謎の中に生れ、そうして死して行くのである。水に浮ぶ泡が結び且つ消える様に。\n　かく果敢なく、解くを得ない運命を歩まなくてはならない人々は又この世に於て何を楽しみ、何を苦しんで生きているのであろうか。\n　泡の如くに消えなくてはならない儘かの人生の中でどんな仕事に面白味を見出し又どんな事で苦しんでいるのかと多くの人々の答を求めたとすれば各種各様に答が出て決して一つのものにはならず、結局何を苦しみ、何を楽しんでいるのか、また何を為すべきか等と云う事も一つの永遠に解き得ない謎になってしまうのである。\n　長い年月の間に火事の為に、地震の為、或いは他の色んな変事の為に、立派な美しい家が無くなってしまったり、又お金持の家が貧しくなったり、貴い地位にあった人が賤しい身分に落ちぶれたりする、こうした人々やその住家の移り変りの極りない事は恰も朝顔の花に置く朝露と、その花との様なものである。花は露の住家である。露は朝顔の住人である。\n　露が先に地に落ちるか、花が先に萎んでしまうか、どちらにしても所詮は落ち、萎むべきものである。露が夕陽の頃まで残る事はなく、又朝顔とても同じ事、朝日が高く登れば萎むべき運命なのである。人々と人々の住家も所詮は朝顔に置く朝露と、朝顔の運命とを辿らねばならないものである。どちらが先に落ちぶれるか、それは解らないが所詮は落ちぶれるものなのである。\n　自分はこの世に生れて早くも四十年と云う長い年月を暮して来たのであるが、物心が付いてから色々と見聞して来た世間の事には全く不思議なものが数々あるのである。これらの多くの見聞したものを少し思い出して書いて見る事にし様。\n　昔の事ではっきりとは覚えていないのだが確か安元三年四月二十八日位であったと思うが、風の物すごく吹いている日で、遂には大嵐となった日の事である。京都の東南部の某の家から折り悪しく火が出たのである。何しろ強風の吹き荒ぶ時であったからたまったものではない。忽ちの中に火は東北の方へと燃え拡がって行った。そして遂には朱雀門や大極殿、大学寮、民部省等の重要な建築を一夜の中に尽く灰塵としてしまった。\n　この大火の火元の某家と云うのは後の調査によると樋口富の小路にある住家で、病人の住んでいたものであった。燃え上った火炎は折からの突風に煽おられ煽おられて、それこそ扇を広げた様な型になって末ひろがりに広がって行った。火元から遠くにある家々は猛烈な煙の為に全く囲まれてしまって、人々は煙に咽び、呼吸すら全く自由には出来ない有様であった。炎上している家々の近くの道路は火炎が溢れ出て来る為に人々の通行を全く阻止してしまった。都の大空は炎々と燃え上る炎の為に夜は火の海の如く真紅で、どれだけ強い火がどれだけ多くの家々を燃やさんとしているかを物語っていた。又一方風は益々強くなるばかりで一向に静まりそうにもなく、その強風は時々火炎を遠い所へ吹き飛ばして又新しく火事を起して益々火事は広がって行くのであった。\n　嵐と火事の真只中に囲まれた京の人々は全く半狂乱でその為す所を知らずと云う有様、皆もう生きた心持もなく、唯々自然の成り行きにまかせて見ているより仕方がなかった。何をする等と云う頭はまるで働かず、茫然自失、全く手の下し様がなかった。吹き付けて来る煙に巻き込まれた人は呼吸を止められてパッタリと倒れ、人事不省になり、又吹き付ける火災にその身を巻き込まれた人々は直にその場で貴い一命を奪われてしまう事も頻多であった。こんな混乱と危険との間を幸にも辛うじてその生命を全うして無事に脱出し得た人々でも自分の住家から大切な家財道具を持ち出す事はまるで不可能で、大切な家財が皆火災の為に灰塵とされてしまうのを目の前に見ていた。それでいてどうする事も出来なかったのである。この様にして焼け失せてしまった諸々の家財、道具、或いは宝物、その中には定めし先祖伝来、父祖伝来のものもあったであろうに、それらのものの価はどれだけであったか考えて見る事も出来ない程に莫大なものであったろうと思われるのである。\n　公卿の屋敷がこの度の大火の為に十六と云う多数も焼け失せてしまった程であるから、まして身分の賤しい素町人達の屋敷の焼け失せた数は数える事も出来ない程に多くあった事と思われる。この大火は京の街の三分の一と云うものを僅かの間に灰にしてしまったのである。\n　数多くの人々がこの大火の為にその尊い生命までも落しているのである。これ等の中には青年少年で将来どれだけ偉大な仕事をやったであろうと思われる人々も尠くなかったであろうに、惜しい事をしたものである。人間でさえこんな事になったのであるから、まして畜生である馬や牛の焼死したものは数知れずあった訳である。人間は本来、色んな愚にも付かない事をするものであるが、とり分けこん度の様に一朝にして総てを灰塵に帰すると云う様な危険性の多分にある都会の中にあって、一朝にして灰となる運命も知らぬげに、自分の住家に、大層なお金を掛けて、ああでもない、こうでもないと色々と苦心して、建てる事程間抜けな愚かしい事はないとしみじみと思い当った。こうして苦労して建てても一朝火炎に見舞われれば直に灰塵となってしまうのであるのに、全く建物にお金を掛けたり苦労する程馬鹿らしい事はない。\n　治承四年の四月の頃には又大きな旋風の起った事があった。京極のほとりに起って六条のあたりまで吹いたものであった。全く物すさまじい勢のもので、三、四丁も吹いて行く間に、ぶっつかる所の大きな家でも、小さなのでも、どんな家でも殆ど覆したり、破壊したり、破損したりしたものであった。それ程すさまじい勢に吹きつのった事であった。\n　旋風に巻き込まれてその儘地上の上にペシャンコに倒されてしまったものや、桁と柱だけが残って障子や、壁はすっかり吹き抜かれてしまったのもあった。そうかと思うと門を吹き飛ばして四、五丁も先に持って行ってしまったり、垣を吹きとばしてしまって隣家との境を取りのけてしまって庭続きにしたりして方々にとんだ悲喜劇を起させた。家々にある色んな家財道具の類も根こそぎにすっかり空に吹き上げてしまった。屋根を覆っている所の檜皮葺板の類は丁度冬の頃に木の葉が風に舞い上る様に乱れて空に吹き上げられた。\n　煙が都の空を全く覆ってしまったのではないかと思われる程に都の空には塵や埃が舞い上って天日為に暗きを感じた程であった。\n人々の話し声等は荒れ狂う強風の為に全く掻き消されてしまって聞える所の騒ぎではなかった。\n都の街々に聞えるものは唯風の吹き荒れるすさまじい音響のみであった。\nその風の荒れる様のすさまじさはまるで伝え聞く地獄の業の風が現実の世に吹くのかと思われる程のものであった。\n吹き倒された家、破損された家、それ等家々の無残な様子は全く目も当てられない程である。\n又住家等の破損した場所を修繕し様として外に出て仕事をしているとそこへ何か大きなものが吹き付けて来て哀れにも不具者となると云う様な人々も数多くあった。\n真に気の毒な人々である。",
+    "genre_analysis": {
+      "primary_genre": "恋愛",
+      "confidence": 0.9,
+      "ndc_class": null,
+      "kindle_category": null,
+      "ontology_weights": {
+        "emotion": 3.5,
+        "relationship": 3.5,
+        "character": 2.8,
+        "indirect_emotion": 4.0,
+        "temporal": 2.0,
+        "spatial": 1.8,
+        "metaphysical": 2.5
+      }
+    },
+    "manuscript_analysis": {
+      "title": "方丈記",
+      "strong_dimensions": [],
+      "weak_dimensions": [],
+      "average_aesthetic": 0.7,
+      "total_sentences": 67
+    },
+    "adaptive_weighting": {
+      "cta_weights": {},
+      "ontology_weights": {},
+      "boost_factors": {},
+      "suppress_factors": {},
+      "balance_score": 0.75,
+      "created_timestamp": 1755497166.0142431
+    },
+    "sentences": [
+      "現代語訳　方丈記鴨長明佐藤春夫訳【テキスト中に現れる記号について】《》：ルビ（例）飛沫｜：ルビの付く文字列の始まりを特定する記号（例）中｜僅河の流れは常に絶える事がなく、しかも流れ行く河の水は移り変って絶間がない。",
+      "奔流に現われる飛沫は一瞬も止る事がなく、現れるや直に消えてしまって又新しく現れるのである。",
+      "世の中の人々の運命や、人々の住家の移り変りの激しい事等は丁度河の流れにも譬えられ、又奔流に現われては消えさる飛沫の様に極めてはかないものである。",
+      "壮麗を極めた花の都の中にぎっしりと立ち並んでいる家々は各々の美しく高い甍をお互に競争し合っている。",
+      "これ等の色々な人々の住家は何時の時代にでもあるもので決して絶えるものではないのであるが、さてこういう貴賤様々な人々の住家の中に不変のものを見出すと云う事は出来るものではなく、昔の儘に現在までも続いていると云う住家は殆んどなく、極めて稀に昔の美しさのある物を発見するのが頗る難しいことなのである。",
+      "この辺に美しい立派な住家があったのだがと見て見るともうその家は去年焼け失せて無くなっていたりする。",
+      "又こんな所にこんな立派な住家は無かったのにと思って見ると前の貧しい家は焼け失せて現在はこれほどの立派な住家になっていたりするものである。",
+      "この様に昔お金持であって立派な美しい住家に住んでいた人が今は見る陰もなく落ちぶれて昔の住家に比ぶれば掘立小屋同様の住家に住んでいたりする。",
+      "こんな運命が人々の歩まねばならないものなのである。",
+      "昔からの知り合いは居ないものかと見て見るとそうした人は中々に見付ける事が出来なくて、所も昔の儘の所であるのに、又そこに住んでいる人々も昔の様に多数の人々が住んでいるに拘らず、十人の中｜僅に二、三人しか見出す事が出来ない有様であって、真に人々の歩むべき運命の路のあまりにも変転極まりないのを見ると感動に堪えないものがある。",
+      "人間のこういう運命、朝に生れては夕に死して行かなくてはならない果敢ない運命、変転極りない運命、こういう事を深く考えて見ると全く、結んでは直に消え、消えては又結ぶ水流の泡沫の如きものではないかと思ったりする。",
+      "奔流に結び且つ消ゆる飛沫の運命、それが詮ずる所人々の歩むべき運命なのである。",
+      "一体多くの人々がこの世に生れ出て来るのであるが、これらの人々は何処から来たものであろうか。",
+      "そして又何処へ行ってしまうのであろうか。",
+      "等と考えて見ると何処から来、何処へ行くかと云う問いに対して答え得るものは何処にも居るものではなく、何処から来て何処へ行くかは永遠に解くを得ない謎であって人々はこの謎の中に生れ、そうして死して行くのである。",
+      "水に浮ぶ泡が結び且つ消える様に。",
+      "かく果敢なく、解くを得ない運命を歩まなくてはならない人々は又この世に於て何を楽しみ、何を苦しんで生きているのであろうか。",
+      "泡の如くに消えなくてはならない儘かの人生の中でどんな仕事に面白味を見出し又どんな事で苦しんでいるのかと多くの人々の答を求めたとすれば各種各様に答が出て決して一つのものにはならず、結局何を苦しみ、何を楽しんでいるのか、また何を為すべきか等と云う事も一つの永遠に解き得ない謎になってしまうのである。",
+      "長い年月の間に火事の為に、地震の為、或いは他の色んな変事の為に、立派な美しい家が無くなってしまったり、又お金持の家が貧しくなったり、貴い地位にあった人が賤しい身分に落ちぶれたりする、こうした人々やその住家の移り変りの極りない事は恰も朝顔の花に置く朝露と、その花との様なものである。",
+      "花は露の住家である。",
+      "露は朝顔の住人である。",
+      "露が先に地に落ちるか、花が先に萎んでしまうか、どちらにしても所詮は落ち、萎むべきものである。",
+      "露が夕陽の頃まで残る事はなく、又朝顔とても同じ事、朝日が高く登れば萎むべき運命なのである。",
+      "人々と人々の住家も所詮は朝顔に置く朝露と、朝顔の運命とを辿らねばならないものである。",
+      "どちらが先に落ちぶれるか、それは解らないが所詮は落ちぶれるものなのである。",
+      "自分はこの世に生れて早くも四十年と云う長い年月を暮して来たのであるが、物心が付いてから色々と見聞して来た世間の事には全く不思議なものが数々あるのである。",
+      "これらの多くの見聞したものを少し思い出して書いて見る事にし様。",
+      "昔の事ではっきりとは覚えていないのだが確か安元三年四月二十八日位であったと思うが、風の物すごく吹いている日で、遂には大嵐となった日の事である。",
+      "京都の東南部の某の家から折り悪しく火が出たのである。",
+      "何しろ強風の吹き荒ぶ時であったからたまったものではない。",
+      "忽ちの中に火は東北の方へと燃え拡がって行った。",
+      "そして遂には朱雀門や大極殿、大学寮、民部省等の重要な建築を一夜の中に尽く灰塵としてしまった。",
+      "この大火の火元の某家と云うのは後の調査によると樋口富の小路にある住家で、病人の住んでいたものであった。",
+      "燃え上った火炎は折からの突風に煽おられ煽おられて、それこそ扇を広げた様な型になって末ひろがりに広がって行った。",
+      "火元から遠くにある家々は猛烈な煙の為に全く囲まれてしまって、人々は煙に咽び、呼吸すら全く自由には出来ない有様であった。",
+      "炎上している家々の近くの道路は火炎が溢れ出て来る為に人々の通行を全く阻止してしまった。",
+      "都の大空は炎々と燃え上る炎の為に夜は火の海の如く真紅で、どれだけ強い火がどれだけ多くの家々を燃やさんとしているかを物語っていた。",
+      "又一方風は益々強くなるばかりで一向に静まりそうにもなく、その強風は時々火炎を遠い所へ吹き飛ばして又新しく火事を起して益々火事は広がって行くのであった。",
+      "嵐と火事の真只中に囲まれた京の人々は全く半狂乱でその為す所を知らずと云う有様、皆もう生きた心持もなく、唯々自然の成り行きにまかせて見ているより仕方がなかった。",
+      "何をする等と云う頭はまるで働かず、茫然自失、全く手の下し様がなかった。",
+      "吹き付けて来る煙に巻き込まれた人は呼吸を止められてパッタリと倒れ、人事不省になり、又吹き付ける火災にその身を巻き込まれた人々は直にその場で貴い一命を奪われてしまう事も頻多であった。",
+      "こんな混乱と危険との間を幸にも辛うじてその生命を全うして無事に脱出し得た人々でも自分の住家から大切な家財道具を持ち出す事はまるで不可能で、大切な家財が皆火災の為に灰塵とされてしまうのを目の前に見ていた。",
+      "それでいてどうする事も出来なかったのである。",
+      "この様にして焼け失せてしまった諸々の家財、道具、或いは宝物、その中には定めし先祖伝来、父祖伝来のものもあったであろうに、それらのものの価はどれだけであったか考えて見る事も出来ない程に莫大なものであったろうと思われるのである。",
+      "公卿の屋敷がこの度の大火の為に十六と云う多数も焼け失せてしまった程であるから、まして身分の賤しい素町人達の屋敷の焼け失せた数は数える事も出来ない程に多くあった事と思われる。",
+      "この大火は京の街の三分の一と云うものを僅かの間に灰にしてしまったのである。",
+      "数多くの人々がこの大火の為にその尊い生命までも落しているのである。",
+      "これ等の中には青年少年で将来どれだけ偉大な仕事をやったであろうと思われる人々も尠くなかったであろうに、惜しい事をしたものである。",
+      "人間でさえこんな事になったのであるから、まして畜生である馬や牛の焼死したものは数知れずあった訳である。",
+      "人間は本来、色んな愚にも付かない事をするものであるが、とり分けこん度の様に一朝にして総てを灰塵に帰すると云う様な危険性の多分にある都会の中にあって、一朝にして灰となる運命も知らぬげに、自分の住家に、大層なお金を掛けて、ああでもない、こうでもないと色々と苦心して、建てる事程間抜けな愚かしい事はないとしみじみと思い当った。",
+      "こうして苦労して建てても一朝火炎に見舞われれば直に灰塵となってしまうのであるのに、全く建物にお金を掛けたり苦労する程馬鹿らしい事はない。",
+      "治承四年の四月の頃には又大きな旋風の起った事があった。",
+      "京極のほとりに起って六条のあたりまで吹いたものであった。",
+      "全く物すさまじい勢のもので、三、四丁も吹いて行く間に、ぶっつかる所の大きな家でも、小さなのでも、どんな家でも殆ど覆したり、破壊したり、破損したりしたものであった。",
+      "それ程すさまじい勢に吹きつのった事であった。",
+      "旋風に巻き込まれてその儘地上の上にペシャンコに倒されてしまったものや、桁と柱だけが残って障子や、壁はすっかり吹き抜かれてしまったのもあった。",
+      "そうかと思うと門を吹き飛ばして四、五丁も先に持って行ってしまったり、垣を吹きとばしてしまって隣家との境を取りのけてしまって庭続きにしたりして方々にとんだ悲喜劇を起させた。",
+      "家々にある色んな家財道具の類も根こそぎにすっかり空に吹き上げてしまった。",
+      "屋根を覆っている所の檜皮葺板の類は丁度冬の頃に木の葉が風に舞い上る様に乱れて空に吹き上げられた。",
+      "煙が都の空を全く覆ってしまったのではないかと思われる程に都の空には塵や埃が舞い上って天日為に暗きを感じた程であった。",
+      "人々の話し声等は荒れ狂う強風の為に全く掻き消されてしまって聞える所の騒ぎではなかった。",
+      "都の街々に聞えるものは唯風の吹き荒れるすさまじい音響のみであった。",
+      "その風の荒れる様のすさまじさはまるで伝え聞く地獄の業の風が現実の世に吹くのかと思われる程のものであった。",
+      "吹き倒された家、破損された家、それ等家々の無残な様子は全く目も当てられない程である。",
+      "又住家等の破損した場所を修繕し様として外に出て仕事をしているとそこへ何か大きなものが吹き付けて来て哀れにも不具者となると云う様な人々も数多くあった。",
+      "真に気の毒な人々である。"
+    ],
+    "node_count": 72,
+    "edge_count": 66,
+    "characters": [
+      {
+        "name": "さ",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      },
+      {
+        "name": "ん",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      },
+      {
+        "name": "麗",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      }
+    ],
+    "settings": [
+      {
+        "place": "家",
+        "time": null,
+        "description": null
+      }
+    ],
+    "relations": [
+      {
+        "source": "さ",
+        "relation_type": "LOVES",
+        "target": "ん",
+        "strength": 0.9
+      }
+    ],
+    "motifs": [
+      {
+        "symbol": "海",
+        "category": "emotion",
+        "description": null
+      },
+      {
+        "symbol": "心",
+        "category": "emotion",
+        "description": null
+      }
+    ],
+    "ultrathink_analysis": {
+      "analysis_results": "LNAESResult objects (not serializable)",
+      "total_dimensions": 22770,
+      "average_dimensions": 345.0,
+      "345_achieved": true,
+      "sentence_count": 66
+    },
+    "cypher_statements": "// 文ノード（345次元 + ジャンル適応情報付与）\nCREATE (s1:Sentence {id: 1, text: '現代語訳　方丈記鴨長明佐藤春夫訳【テキスト中に現れる記号について】《》：ルビ（例）飛沫｜：ルビの付く文字列の始まりを特定する記号（例）中｜僅河の流れは常に絶える事がなく、しかも流れ行く河の水は移り変って絶間がない。', aesthetic_quality: 0.004012876748529403, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s2:Sentence {id: 2, text: '奔流に現われる飛沫は一瞬も止る事がなく、現れるや直に消えてしまって又新しく現れるのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s3:Sentence {id: 3, text: '世の中の人々の運命や、人々の住家の移り変りの激しい事等は丁度河の流れにも譬えられ、又奔流に現われては消えさる飛沫の様に極めてはかないものである。', aesthetic_quality: 0.21799892362131143, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s4:Sentence {id: 4, text: '壮麗を極めた花の都の中にぎっしりと立ち並んでいる家々は各々の美しく高い甍をお互に競争し合っている。', aesthetic_quality: 0.6547614291335346, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s5:Sentence {id: 5, text: 'これ等の色々な人々の住家は何時の時代にでもあるもので決して絶えるものではないのであるが、さてこういう貴賤様々な人々の住家の中に不変のものを見出すと云う事は出来るものではなく、昔の儘に現在までも続いていると云う住家は殆んどなく、極めて稀に昔の美しさのある物を発見するのが頗る難しいことなのである。', aesthetic_quality: 0.6029740343585389, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s6:Sentence {id: 6, text: 'この辺に美しい立派な住家があったのだがと見て見るともうその家は去年焼け失せて無くなっていたりする。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s7:Sentence {id: 7, text: '又こんな所にこんな立派な住家は無かったのにと思って見ると前の貧しい家は焼け失せて現在はこれほどの立派な住家になっていたりするものである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s8:Sentence {id: 8, text: 'この様に昔お金持であって立派な美しい住家に住んでいた人が今は見る陰もなく落ちぶれて昔の住家に比ぶれば掘立小屋同様の住家に住んでいたりする。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s9:Sentence {id: 9, text: 'こんな運命が人々の歩まねばならないものなのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s10:Sentence {id: 10, text: '昔からの知り合いは居ないものかと見て見るとそうした人は中々に見付ける事が出来なくて、所も昔の儘の所であるのに、又そこに住んでいる人々も昔の様に多数の人々が住んでいるに拘らず、十人の中｜僅に二、三人しか見出す事が出来ない有様であって、真に人々の歩むべき運命の路のあまりにも変転極まりないのを見ると感動に堪えないものがある。', aesthetic_quality: 0.00027591554137806635, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s11:Sentence {id: 11, text: '人間のこういう運命、朝に生れては夕に死して行かなくてはならない果敢ない運命、変転極りない運命、こういう事を深く考えて見ると全く、結んでは直に消え、消えては又結ぶ水流の泡沫の如きものではないかと思ったりする。', aesthetic_quality: 0.0018757311510954771, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s12:Sentence {id: 12, text: '奔流に結び且つ消ゆる飛沫の運命、それが詮ずる所人々の歩むべき運命なのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s13:Sentence {id: 13, text: '一体多くの人々がこの世に生れ出て来るのであるが、これらの人々は何処から来たものであろうか。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s14:Sentence {id: 14, text: 'そして又何処へ行ってしまうのであろうか。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s15:Sentence {id: 15, text: '等と考えて見ると何処から来、何処へ行くかと云う問いに対して答え得るものは何処にも居るものではなく、何処から来て何処へ行くかは永遠に解くを得ない謎であって人々はこの謎の中に生れ、そうして死して行くのである。', aesthetic_quality: 0.0008713873821858286, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s16:Sentence {id: 16, text: '水に浮ぶ泡が結び且つ消える様に。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s17:Sentence {id: 17, text: 'かく果敢なく、解くを得ない運命を歩まなくてはならない人々は又この世に於て何を楽しみ、何を苦しんで生きているのであろうか。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s18:Sentence {id: 18, text: '泡の如くに消えなくてはならない儘かの人生の中でどんな仕事に面白味を見出し又どんな事で苦しんでいるのかと多くの人々の答を求めたとすれば各種各様に答が出て決して一つのものにはならず、結局何を苦しみ、何を楽しんでいるのか、また何を為すべきか等と云う事も一つの永遠に解き得ない謎になってしまうのである。', aesthetic_quality: 0.0002912027793735553, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s19:Sentence {id: 19, text: '長い年月の間に火事の為に、地震の為、或いは他の色んな変事の為に、立派な美しい家が無くなってしまったり、又お金持の家が貧しくなったり、貴い地位にあった人が賤しい身分に落ちぶれたりする、こうした人々やその住家の移り変りの極りない事は恰も朝顔の花に置く朝露と、その花との様なものである。', aesthetic_quality: 0.9818621037370178, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s20:Sentence {id: 20, text: '花は露の住家である。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s21:Sentence {id: 21, text: '露は朝顔の住人である。', aesthetic_quality: 0.0006402332215598609, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s22:Sentence {id: 22, text: '露が先に地に落ちるか、花が先に萎んでしまうか、どちらにしても所詮は落ち、萎むべきものである。', aesthetic_quality: 0.04541192804853409, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s23:Sentence {id: 23, text: '露が夕陽の頃まで残る事はなく、又朝顔とても同じ事、朝日が高く登れば萎むべき運命なのである。', aesthetic_quality: 0.00044398489090909083, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s24:Sentence {id: 24, text: '人々と人々の住家も所詮は朝顔に置く朝露と、朝顔の運命とを辿らねばならないものである。', aesthetic_quality: 0.000458462659090909, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s25:Sentence {id: 25, text: 'どちらが先に落ちぶれるか、それは解らないが所詮は落ちぶれるものなのである。', aesthetic_quality: 0.04994323625454545, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s26:Sentence {id: 26, text: '自分はこの世に生れて早くも四十年と云う長い年月を暮して来たのであるが、物心が付いてから色々と見聞して来た世間の事には全く不思議なものが数々あるのである。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s27:Sentence {id: 27, text: 'これらの多くの見聞したものを少し思い出して書いて見る事にし様。', aesthetic_quality: 0.0016951346533333332, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s28:Sentence {id: 28, text: '昔の事ではっきりとは覚えていないのだが確か安元三年四月二十八日位であったと思うが、風の物すごく吹いている日で、遂には大嵐となった日の事である。', aesthetic_quality: 0.0003763461401202103, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s29:Sentence {id: 29, text: '京都の東南部の某の家から折り悪しく火が出たのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s30:Sentence {id: 30, text: '何しろ強風の吹き荒ぶ時であったからたまったものではない。', aesthetic_quality: 0.0011676380244755242, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s31:Sentence {id: 31, text: '忽ちの中に火は東北の方へと燃え拡がって行った。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s32:Sentence {id: 32, text: 'そして遂には朱雀門や大極殿、大学寮、民部省等の重要な建築を一夜の中に尽く灰塵としてしまった。', aesthetic_quality: 0.00043936004829545457, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s33:Sentence {id: 33, text: 'この大火の火元の某家と云うのは後の調査によると樋口富の小路にある住家で、病人の住んでいたものであった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s34:Sentence {id: 34, text: '燃え上った火炎は折からの突風に煽おられ煽おられて、それこそ扇を広げた様な型になって末ひろがりに広がって行った。', aesthetic_quality: 0.0003430001649350648, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s35:Sentence {id: 35, text: '火元から遠くにある家々は猛烈な煙の為に全く囲まれてしまって、人々は煙に咽び、呼吸すら全く自由には出来ない有様であった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s36:Sentence {id: 36, text: '炎上している家々の近くの道路は火炎が溢れ出て来る為に人々の通行を全く阻止してしまった。', aesthetic_quality: 0.0007922457580645161, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s37:Sentence {id: 37, text: '都の大空は炎々と燃え上る炎の為に夜は火の海の如く真紅で、どれだけ強い火がどれだけ多くの家々を燃やさんとしているかを物語っていた。', aesthetic_quality: 0.007359669218181818, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s38:Sentence {id: 38, text: '又一方風は益々強くなるばかりで一向に静まりそうにもなく、その強風は時々火炎を遠い所へ吹き飛ばして又新しく火事を起して益々火事は広がって行くのであった。', aesthetic_quality: 0.0007286061272727272, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s39:Sentence {id: 39, text: '嵐と火事の真只中に囲まれた京の人々は全く半狂乱でその為す所を知らずと云う有様、皆もう生きた心持もなく、唯々自然の成り行きにまかせて見ているより仕方がなかった。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s40:Sentence {id: 40, text: '何をする等と云う頭はまるで働かず、茫然自失、全く手の下し様がなかった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s41:Sentence {id: 41, text: '吹き付けて来る煙に巻き込まれた人は呼吸を止められてパッタリと倒れ、人事不省になり、又吹き付ける火災にその身を巻き込まれた人々は直にその場で貴い一命を奪われてしまう事も頻多であった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s42:Sentence {id: 42, text: 'こんな混乱と危険との間を幸にも辛うじてその生命を全うして無事に脱出し得た人々でも自分の住家から大切な家財道具を持ち出す事はまるで不可能で、大切な家財が皆火災の為に灰塵とされてしまうのを目の前に見ていた。', aesthetic_quality: 0.032915493262133624, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s43:Sentence {id: 43, text: 'それでいてどうする事も出来なかったのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s44:Sentence {id: 44, text: 'この様にして焼け失せてしまった諸々の家財、道具、或いは宝物、その中には定めし先祖伝来、父祖伝来のものもあったであろうに、それらのものの価はどれだけであったか考えて見る事も出来ない程に莫大なものであったろうと思われるのである。', aesthetic_quality: 0.0006578031866657646, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s45:Sentence {id: 45, text: '公卿の屋敷がこの度の大火の為に十六と云う多数も焼け失せてしまった程であるから、まして身分の賤しい素町人達の屋敷の焼け失せた数は数える事も出来ない程に多くあった事と思われる。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s46:Sentence {id: 46, text: 'この大火は京の街の三分の一と云うものを僅かの間に灰にしてしまったのである。', aesthetic_quality: 0.0008276478620689654, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s47:Sentence {id: 47, text: '数多くの人々がこの大火の為にその尊い生命までも落しているのである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s48:Sentence {id: 48, text: 'これ等の中には青年少年で将来どれだけ偉大な仕事をやったであろうと思われる人々も尠くなかったであろうに、惜しい事をしたものである。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s49:Sentence {id: 49, text: '人間でさえこんな事になったのであるから、まして畜生である馬や牛の焼死したものは数知れずあった訳である。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s50:Sentence {id: 50, text: '人間は本来、色んな愚にも付かない事をするものであるが、とり分けこん度の様に一朝にして総てを灰塵に帰すると云う様な危険性の多分にある都会の中にあって、一朝にして灰となる運命も知らぬげに、自分の住家に、大層なお金を掛けて、ああでもない、こうでもないと色々と苦心して、建てる事程間抜けな愚かしい事はないとしみじみと思い当った。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s51:Sentence {id: 51, text: 'こうして苦労して建てても一朝火炎に見舞われれば直に灰塵となってしまうのであるのに、全く建物にお金を掛けたり苦労する程馬鹿らしい事はない。', aesthetic_quality: 0.0003574454630200307, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s52:Sentence {id: 52, text: '治承四年の四月の頃には又大きな旋風の起った事があった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s53:Sentence {id: 53, text: '京極のほとりに起って六条のあたりまで吹いたものであった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s54:Sentence {id: 54, text: '全く物すさまじい勢のもので、三、四丁も吹いて行く間に、ぶっつかる所の大きな家でも、小さなのでも、どんな家でも殆ど覆したり、破壊したり、破損したりしたものであった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s55:Sentence {id: 55, text: 'それ程すさまじい勢に吹きつのった事であった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s56:Sentence {id: 56, text: '旋風に巻き込まれてその儘地上の上にペシャンコに倒されてしまったものや、桁と柱だけが残って障子や、壁はすっかり吹き抜かれてしまったのもあった。', aesthetic_quality: 0.00030012514431818174, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s57:Sentence {id: 57, text: 'そうかと思うと門を吹き飛ばして四、五丁も先に持って行ってしまったり、垣を吹きとばしてしまって隣家との境を取りのけてしまって庭続きにしたりして方々にとんだ悲喜劇を起させた。', aesthetic_quality: 0.001852742861454545, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s58:Sentence {id: 58, text: '家々にある色んな家財道具の類も根こそぎにすっかり空に吹き上げてしまった。', aesthetic_quality: 0.0025893649693446087, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s59:Sentence {id: 59, text: '屋根を覆っている所の檜皮葺板の類は丁度冬の頃に木の葉が風に舞い上る様に乱れて空に吹き上げられた。', aesthetic_quality: 0.002255475168367347, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s60:Sentence {id: 60, text: '煙が都の空を全く覆ってしまったのではないかと思われる程に都の空には塵や埃が舞い上って天日為に暗きを感じた程であった。', aesthetic_quality: 0.000682211625, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s61:Sentence {id: 61, text: '人々の話し声等は荒れ狂う強風の為に全く掻き消されてしまって聞える所の騒ぎではなかった。', aesthetic_quality: 0.0018138488516129033, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s62:Sentence {id: 62, text: '都の街々に聞えるものは唯風の吹き荒れるすさまじい音響のみであった。', aesthetic_quality: 0.000907562365826944, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s63:Sentence {id: 63, text: 'その風の荒れる様のすさまじさはまるで伝え聞く地獄の業の風が現実の世に吹くのかと思われる程のものであった。', aesthetic_quality: 1.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s64:Sentence {id: 64, text: '吹き倒された家、破損された家、それ等家々の無残な様子は全く目も当てられない程である。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s65:Sentence {id: 65, text: '又住家等の破損した場所を修繕し様として外に出て仕事をしているとそこへ何か大きなものが吹き付けて来て哀れにも不具者となると云う様な人々も数多くあった。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s66:Sentence {id: 66, text: '真に気の毒な人々である。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\n// 文間関係（適応的重みづけ）\nCREATE (s1)-[:NEXT]->(s2);\nCREATE (s2)-[:NEXT]->(s3);\nCREATE (s3)-[:NEXT]->(s4);\nCREATE (s4)-[:NEXT]->(s5);\nCREATE (s5)-[:NEXT]->(s6);\nCREATE (s6)-[:NEXT]->(s7);\nCREATE (s7)-[:NEXT]->(s8);\nCREATE (s8)-[:NEXT]->(s9);\nCREATE (s9)-[:NEXT]->(s10);\nCREATE (s10)-[:NEXT]->(s11);\nCREATE (s11)-[:NEXT]->(s12);\nCREATE (s12)-[:NEXT]->(s13);\nCREATE (s13)-[:NEXT]->(s14);\nCREATE (s14)-[:NEXT]->(s15);\nCREATE (s15)-[:NEXT]->(s16);\nCREATE (s16)-[:NEXT]->(s17);\nCREATE (s17)-[:NEXT]->(s18);\nCREATE (s18)-[:NEXT]->(s19);\nCREATE (s19)-[:NEXT]->(s20);\nCREATE (s20)-[:NEXT]->(s21);\nCREATE (s21)-[:NEXT]->(s22);\nCREATE (s22)-[:NEXT]->(s23);\nCREATE (s23)-[:NEXT]->(s24);\nCREATE (s24)-[:NEXT]->(s25);\nCREATE (s25)-[:NEXT]->(s26);\nCREATE (s26)-[:NEXT]->(s27);\nCREATE (s27)-[:NEXT]->(s28);\nCREATE (s28)-[:NEXT]->(s29);\nCREATE (s29)-[:NEXT]->(s30);\nCREATE (s30)-[:NEXT]->(s31);\nCREATE (s31)-[:NEXT]->(s32);\nCREATE (s32)-[:NEXT]->(s33);\nCREATE (s33)-[:NEXT]->(s34);\nCREATE (s34)-[:NEXT]->(s35);\nCREATE (s35)-[:NEXT]->(s36);\nCREATE (s36)-[:NEXT]->(s37);\nCREATE (s37)-[:NEXT]->(s38);\nCREATE (s38)-[:NEXT]->(s39);\nCREATE (s39)-[:NEXT]->(s40);\nCREATE (s40)-[:NEXT]->(s41);\nCREATE (s41)-[:NEXT]->(s42);\nCREATE (s42)-[:NEXT]->(s43);\nCREATE (s43)-[:NEXT]->(s44);\nCREATE (s44)-[:NEXT]->(s45);\nCREATE (s45)-[:NEXT]->(s46);\nCREATE (s46)-[:NEXT]->(s47);\nCREATE (s47)-[:NEXT]->(s48);\nCREATE (s48)-[:NEXT]->(s49);\nCREATE (s49)-[:NEXT]->(s50);\nCREATE (s50)-[:NEXT]->(s51);\nCREATE (s51)-[:NEXT]->(s52);\nCREATE (s52)-[:NEXT]->(s53);\nCREATE (s53)-[:NEXT]->(s54);\nCREATE (s54)-[:NEXT]->(s55);\nCREATE (s55)-[:NEXT]->(s56);\nCREATE (s56)-[:NEXT]->(s57);\nCREATE (s57)-[:NEXT]->(s58);\nCREATE (s58)-[:NEXT]->(s59);\nCREATE (s59)-[:NEXT]->(s60);\nCREATE (s60)-[:NEXT]->(s61);\nCREATE (s61)-[:NEXT]->(s62);\nCREATE (s62)-[:NEXT]->(s63);\nCREATE (s63)-[:NEXT]->(s64);\nCREATE (s64)-[:NEXT]->(s65);\nCREATE (s65)-[:NEXT]->(s66);\n// キャラクター（ジャンル最適化）\nCREATE (c0:Character {name: 'さ', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\nCREATE (c1:Character {name: 'ん', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\nCREATE (c2:Character {name: '麗', kind: 'human', genre_weight: 1.00, adaptive_priority: False});\n// 設定（ジャンル最適化）\nCREATE (p0:Place {name: '家', spatial_weight: 1.00, genre_significance: False});\n// 関係性（適応的強度）\nMATCH (a:Character {name: 'さ'}), (b:Character {name: 'ん'}) CREATE (a)-[:LOVES {strength: 0.900, genre_weight: 1.00}]->(b);\n// モチーフ（ジャンル特化）\nCREATE (m0:Motif {symbol: '海', category: 'emotion', emotion_weight: 1.00});\nCREATE (m1:Motif {symbol: '心', category: 'emotion', emotion_weight: 1.00});",
+    "restoration_quality_estimate": 0.748,
+    "processing_time": 0.037943124771118164
+  },
+  {
+    "original_text": "吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。",
+    "genre_analysis": {
+      "primary_genre": "文学",
+      "confidence": 0.6,
+      "ndc_class": null,
+      "kindle_category": null,
+      "ontology_weights": {
+        "metaphysical": 5.0,
+        "indirect_emotion": 4.0,
+        "discourse": 3.0,
+        "narrative": 2.8,
+        "emotion": 2.0,
+        "action": 1.5,
+        "relationship": 2.0
+      }
+    },
+    "manuscript_analysis": {
+      "title": "猫テスト",
+      "strong_dimensions": [],
+      "weak_dimensions": [],
+      "average_aesthetic": 0.7,
+      "total_sentences": 5
+    },
+    "adaptive_weighting": {
+      "cta_weights": {},
+      "ontology_weights": {},
+      "boost_factors": {},
+      "suppress_factors": {},
+      "balance_score": 0.75,
+      "created_timestamp": 1755497166.016472
+    },
+    "sentences": [
+      "吾輩は猫である。",
+      "名前はまだ無い。",
+      "どこで生れたかとんと見当がつかぬ。",
+      "何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。"
+    ],
+    "node_count": 5,
+    "edge_count": 3,
+    "characters": [
+      {
+        "name": "ん",
+        "gender": null,
+        "kind": "human",
+        "role": null
+      }
+    ],
+    "settings": [],
+    "relations": [],
+    "motifs": [],
+    "ultrathink_analysis": {
+      "analysis_results": "LNAESResult objects (not serializable)",
+      "total_dimensions": 1380,
+      "average_dimensions": 345.0,
+      "345_achieved": true,
+      "sentence_count": 4
+    },
+    "cypher_statements": "// 文ノード（345次元 + ジャンル適応情報付与）\nCREATE (s1:Sentence {id: 1, text: '吾輩は猫である。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s2:Sentence {id: 2, text: '名前はまだ無い。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s3:Sentence {id: 3, text: 'どこで生れたかとんと見当がつかぬ。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\nCREATE (s4:Sentence {id: 4, text: '何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。', aesthetic_quality: 0.0, total_dimensions: 345, consciousness_level: 1.0, adaptive_weight: 0.75, genre_optimized: True});\n// 文間関係（適応的重みづけ）\nCREATE (s1)-[:NEXT]->(s2);\nCREATE (s2)-[:NEXT]->(s3);\nCREATE (s3)-[:NEXT]->(s4);\n// キャラクター（ジャンル最適化）\nCREATE (c0:Character {name: 'ん', kind: 'human', genre_weight: 1.00, adaptive_priority: False});",
+    "restoration_quality_estimate": 0.7390000000000001,
+    "processing_time": 0.0019588470458984375
+  }
+]
