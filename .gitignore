@@ -117,3 +117,9 @@ logs/
 *.temp
 material_systems/
 out/material_systems_direct_integration.json
+
+# Internal documentation
+CLAUDE.md
+AGENTS.md
+TEAM_COLLABORATION_REQUEST.md
+log/
