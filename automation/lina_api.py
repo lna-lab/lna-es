@@ -13,6 +13,8 @@ Endpoints:
 - POST /lina/auto_approve body: {"request_type": "performance_test", ...}
 - GET  /lina/metrics -> metrics.json content (if exists)
  - POST /lina/consistency body: {"agg": "sentence_mean|segment_mean"}
+ - POST /lina/complete_pipeline body: {"target": "path", "verify_quality": true}
+ - POST /lina/regression_test body: {"texts": ["..."], "min_quality": 0.95}
 
 Run:
   python -m automation.lina_api  (serves on 0.0.0.0:3001)
@@ -230,6 +232,69 @@ class Handler(BaseHTTPRequestHandler):
             result = clf.classify_with_triple_validation(text)
             update_metrics('api_last_triple', result)
             return self._send(200, result)
+
+        if self.path == '/lina/complete_pipeline':
+            target = data.get('target') or ''
+            verify = bool(data.get('verify_quality', True))
+            tpath = Path(target)
+            if not tpath.is_absolute():
+                for base in [ROOT / 'Text', ROOT, ROOT / 'samples']:
+                    cand = base / target
+                    if cand.exists():
+                        tpath = cand
+                        break
+            if not tpath.exists():
+                return self._send(400, {"error": f"target not found: {target}"})
+            stem = tpath.stem
+            # Run complete pipeline
+            verify_flag = '--verify-quality' if verify else ''
+            code, out, err = run_cmd(f"/usr/bin/time -l ./venv/bin/python src/complete_pipeline.py {shlex.quote(str(tpath))} {verify_flag} --output-dir out")
+            # Read result json
+            res_file = OUT_DIR / f"{stem}_pipeline_results.json"
+            result = {}
+            if res_file.exists():
+                try:
+                    result = json.loads(res_file.read_text(encoding='utf-8'))
+                except Exception:
+                    result = {"error": "result parse error"}
+            payload = {
+                "rc": code,
+                "time": parse_time_mem(err),
+                "result": {
+                    "restoration_quality": result.get('restoration_quality'),
+                    "privacy_compliant": result.get('privacy_compliant'),
+                    "pipeline_success": result.get('pipeline_success')
+                },
+                "result_file": str(res_file)
+            }
+            update_metrics('api_last_complete_pipeline', payload)
+            return self._send(200, payload)
+
+        if self.path == '/lina/regression_test':
+            # Run complete pipeline on inline texts (temporary files) and check quality≥min_quality
+            texts = data.get('texts') or []
+            min_q = float(data.get('min_quality', 0.95))
+            results = []
+            (OUT_DIR / 'regression').mkdir(exist_ok=True)
+            for i, txt in enumerate(texts):
+                tmp = OUT_DIR / 'regression' / f'tmp_reg_{i}.txt'
+                tmp.write_text(str(txt), encoding='utf-8')
+                code, out, err = run_cmd(f"/usr/bin/time -l ./venv/bin/python src/complete_pipeline.py {shlex.quote(str(tmp))} --verify-quality --output-dir out")
+                res_file = OUT_DIR / f"{tmp.stem}_pipeline_results.json"
+                r = {}
+                if res_file.exists():
+                    try:
+                        r = json.loads(res_file.read_text(encoding='utf-8'))
+                    except Exception:
+                        r = {}
+                results.append({
+                    "file": str(tmp),
+                    "quality": r.get('restoration_quality'),
+                    "pass": (r.get('restoration_quality') or 0.0) >= min_q
+                })
+            payload = {"min_quality": min_q, "results": results}
+            update_metrics('api_last_regression', payload)
+            return self._send(200, payload)
 
         return self._send(404, {"error": "not found"})
 

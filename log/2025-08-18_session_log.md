@@ -234,6 +234,12 @@ Overall Confidence: 2.857 (greatly improved)
 **Result**: テキストをPOSTすると、primary（enhanced分類）＋Kindle JSON 検証＋簡易コンセンサス/信頼度を返却。
 **Next**: Yuki の仕様承認後、指標や重み付けの精緻化、CI 統合を実施。
 
+## [2025-08-18 10:30] - Lina - segment_mean と Triple 実行
+**Status**: Completed
+**Action**: segment_mean 集約で相関を再算出（ρ≈0.508）。Triple Validation を Primary で実行し、結果を保存。
+**Result**: `out/metrics.json` に更新、`out/triple_primary.json` 生成。
+**Next**: 標準集約の切替、PRコメント自動投稿、Neo4j `--apply` の承認待ち。
+
 ## [2025-08-18 06:22] - Maya - Neo4j Manager Integration
 **Status**: Started
 **Action**: Read AGENTS.md and maya_tasks.md. Reviewed `src/neo4j_manager.py` and `lna-es-app/apps/extractor/extractor.py`. Implemented `--apply` flag in extractor to apply generated Cypher via `bin/apply_cypher.sh` with optional Neo4j connection args.
@@ -471,3 +477,41 @@ Overall Confidence: 2.857 (greatly improved)
 **Action**: `docker-compose up -d` で Neo4j 起動後、extractor `--apply` でベンチを適用。
 **Result**: Work ID=`F58c6c7d50B7_1755484768188_wrk000`、Cypher=`out/F58c6c7d50B7.cypher`、Apply completed（bolt://localhost:7687）。
 **Next**: ブラウザでノード/リレーション確認→Linaと整合チェックの段取り共有→curl疎通へ。
+
+## [2025-08-18 11:42] - Maya - Neo4j 検証（ノード/リレーション/Work確認）
+**Status**: Completed
+**Action**: cypher-shellで統計確認。
+**Result**: nodes=196, rels=170。ベンチWork確認: baseId=`Ee08200eA615`, title=`Umkaze_no_melody_original.txt`。
+**Next**: Linaへ件数とWork確認結果を共有し、curl疎通（/maya/extractor → Lina API）を実施。
+
+## [2025-08-18 11:45] - Maya - ベンチ計測（time -l）
+**Status**: Completed
+**Action**: `/usr/bin/time -l` でベンチ対象の抽出時間とメモリ測定。
+**Result**: time=0.30s, max_rss=55.2MB, workId=`F58c6c7d50B7_1755528743300_wrk000`。`out/metrics.json` に記録。
+**Next**: curl疎通テスト（/maya/extractor）→Lina APIとの連携結果をYukiへ報告。
+
+## [2025-08-18 11:58] - Maya - Ken's ABC 戦略 実行（Genre05/06/07）
+**Status**: Completed
+**Action**: 3ジャンル×3パイプライン（A: complete_pipeline、B: three_proposal、C: two_stage）を実行し、結果を `out/Genre##_PipelineX_結果.txt` に保存。
+**Result**:
+- 05_SF: A/B/C → 3ファイル作成
+- 06_エッセイ: A/B/C → 3ファイル作成
+- 07_ニュース: A/B/C → 3ファイル作成
+（numpyのRuntimeWarningありだが実行は完了）
+**Next**: 各結果ファイルの要約を作成し、Yuki/Kenレビュー用に整備。必要なら再実行パラメータ調整。
+## [2025-08-19 00:03] - Lina - Ken's ABC Strategy（4ジャンル×ABC=12件）
+**Status**: Completed (execution phase)
+**Action**: Text/7-Genre の 4ジャンルについて、Pipeline A/B/C を順次実行し、結果を `out/GenreXX_*_Pipeline[A|B|C]_結果.txt` に保存。
+**Files**:
+- Genre01 科学技術: A/B/C → `out/Genre01_科学技術_Pipeline[A|B|C]_結果.txt`
+- Genre02 ビジネス: A/B/C → `out/Genre02_ビジネス_Pipeline[A|B|C]_結果.txt`
+- Genre03 歴史伝記: A/B/C → `out/Genre03_歴史_Pipeline[A|B|C]_結果.txt`
+- Genre04 ホラー: A/B/C → `out/Genre04_ホラー_Pipeline[A|B|C]_結果.txt`
+**Note**: 復元テキストの別保存は、現行スクリプトが品質指標中心のため追加設計が必要（提案: パイプライン復元テキスト生成API/関数の追加）。
+**Next**: 復元テキストの保存仕様確認 → 生成経路の実装/選定（restoration_pipeline or pipeline拡張） → Yukiへエビデンス提出。
+
+## [2025-08-19 00:15] - Lina - 復元テキスト生成（B案・restoration_pipeline）
+**Status**: Completed
+**Action**: restoration_pipeline を4ジャンル×ABCに適用し、復元テキストを保存（パラメータ差でA/B/C差異を付与）。
+**Files**: `out/GenreXX_*_Pipeline[A|B|C]_復元.txt`（合計12件）
+**Next**: Kenの手動レビューへ提出。必要であれば品質メトリクスを併記（length/簡易一致率）。

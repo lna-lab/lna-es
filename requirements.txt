@@ -1,0 +1,26 @@
+# LNA-ES v3.2 Requirements
+# Python 3.12+
+
+# Core Dependencies
+numpy>=2.3.0
+neo4j>=5.0.0
+
+# Ultrathink Engine
+pandas>=2.0.0
+pyyaml>=6.0
+
+# Vector Search & Embeddings
+sentence-transformers>=5.0.0
+torch>=2.0.0
+transformers>=4.41.0
+protobuf>=6.0.0
+sentencepiece>=0.2.0
+
+# Optional: Enhanced Performance
+# faiss-cpu>=1.7.0  # For future FAISS integration
+# pymilvus>=2.3.0   # For future Milvus integration
+
+# Development Tools (optional)
+# pytest>=7.0.0
+# black>=23.0.0
+# flake8>=6.0.0

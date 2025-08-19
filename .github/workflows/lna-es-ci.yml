@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: [classify, extractor]
+        task: [classify, extractor, complete_pipeline]
         sample: [test_sample, literature, science, business]
     steps:
       - name: Checkout
@@ -56,6 +56,8 @@ jobs:
           esac
           if [ "${{ matrix.task }}" = "classify" ]; then
             python -m src.cli classify --file "$INPUT" --pretty > out_classify_${{ matrix.sample }}.json
+          elif [ "${{ matrix.task }}" = "complete_pipeline" ]; then
+            python src/complete_pipeline.py "$INPUT" --verify-quality --output-dir out
           else
             python lna-es-app/apps/extractor/extractor.py --input "$INPUT" --outdir out --datadir data
           fi
