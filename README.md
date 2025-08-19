@@ -1,6 +1,6 @@
 # LNA-ES v3.2 - Living Neural Architecture Enhanced System
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue)](https://www.python.org/)
 [![Neo4j](https://img.shields.io/badge/Neo4j-5.11%2B-green)](https://neo4j.com/)
 
@@ -128,8 +128,8 @@ lna-es/
 
 ## 📜 ライセンス
 
-- **コード**: Apache License 2.0
-- **データ/モデル**: 制限付きライセンス（私的利用のみ）
+- **コード**: MIT License
+- **データ/モデル**: 私的利用のみ（商用利用は要相談）
 
 ## 🙏 謝辞
 
