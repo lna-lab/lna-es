@@ -276,7 +276,7 @@ python bridge_server.py
 
 ## 📝 ソースコード
 
-完全な実装は以下で公開：
+Neo4Jグラフを長期記憶として統合した完全な実装は以下で9月初旬を目処に公開予定：
 https://github.com/lna-lab/lna-es
 
 ---
